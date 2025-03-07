@@ -8,6 +8,7 @@ use App\Models\Sponsor;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -36,7 +37,15 @@ class SponsorResource extends Resource
                     ->label('Company Name'),
                 TextInput::make('website')
                     ->url(),
-                TextInput::make('category'),
+                // TextInput::make('category'),
+                Select::make('category')
+                ->native(false)
+                ->options([
+                    'Platinum Sponsor' => 'Platinum Sponsor',
+                    'Gold Sponsor' => 'Gold Sponsor',
+                    'Silver Sponsor' => 'Silver Sponsor',
+                    'Exhibitors and Scientific Grant' => 'Exhibitors and Scientific Grant',
+                ]),
                 TextInput::make('no_urut')
                     ->numeric(),
                 MarkdownEditor::make('company_profile'),
