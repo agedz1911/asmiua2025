@@ -56,11 +56,13 @@
                                 </ul>
                             </div>
                             <div class="event-discription">
-                                <p class="pb-4 m-0 fst-italic">" "</p>
+                                <p class="pb-4 m-0 fst-italic fw-bold">" ASMIUA 48: Shaping the Future of Urology in
+                                    Indonesia "</p>
                                 <div class="banner-button">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
-                                            <a class="btn me-3 my-1 w-100 text-uppercase" href="/registration">REGISTER</a>
+                                            <a class="btn me-3 my-1 w-100 text-uppercase"
+                                                href="/registration">REGISTER</a>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <a class="btn btn2 my-1 w-100 text-uppercase" href="/visiting">read more</a>
@@ -93,7 +95,7 @@
                                 <img src="assets/images/logo/3.png" class="w-100 mb-3" alt="Logo-asosiasi">
                                 <img src="assets/images/logo/2.png" alt="Logo" class="w-50 mb-3">
                                 <p>48<sup>th</sup> Annual Scientific Meeting of Indonesian Urological Association</p>
-                                <p class="mb-2 fst-italic">" "</p>
+                                <p class="mb-2 fst-italic">" ASMIUA 48: Shaping the Future of Urology in Indonesia "</p>
 
                                 <p class="mb-0 opacity-70"><small>Organized by</small></p>
                                 <p><small>Indonesian Urological Association (InaUA)</small></p>
@@ -216,9 +218,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="general-ques mt-5">
+                <div class="general-ques mt-5">
                     <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 p-2">
+                        {{-- <div class="col-lg-6 order-2 order-lg-1 p-2">
                             <div class="general-ques-left text-white">
                                 <div class="general-ques-image text-center">
                                     <img src="assets/images/team/4.png" alt="faq-general-image" class="w-50"><br>
@@ -230,19 +232,26 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 p-2">
+                        </div> --}}
+                        <h2 class="mb-2 text-white text-center">Welcome <span class="kuning">message </span></h2>
+                        @foreach ($messages as $message)
+                        <div class="col-lg-6 order-1 order-lg-2 p-4">
                             <div class="general-ques-right">
                                 <div class="section-title pb-4 text-center text-lg-start">
-                                    <p class="mb-1 kuning">GENERAL QUESTIONS</p>
-                                    <h2 class="mb-2 text-white">Welcome <span class="kuning">message </span></h2>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    {!! Str::limit(str($message->description)->markdown()->sanitizeHtml(), 500) !!}
+                                    <a href="/welcome-message#{{$message->id}}" class="kuning"><i class="fa fa-angle-right fs-6"></i> Read More...</a>
                                 </div>
-
+                                <div class="speaker-statement-box p-4 rounded bg-blue w-lg-80 mb-mi">
+                                    <div class="speaker-statement ps-4 border-start border-white border-7">
+                                        <p><small>" {{$message->title}} "</small></p>
+                                        <h6 class="text-white">{{$message->name}}</h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                </div> -->
+                </div>
 
             </div>
         </div>

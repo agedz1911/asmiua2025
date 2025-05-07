@@ -78,13 +78,13 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle px-2 my-4 py-0 {{ request()->is('organizing-committee') || request()->is('/welcome-message') || request()->is('/faculties') ? 'active' : '' }}"
+                                <a class="nav-link dropdown-toggle px-2 my-4 py-0 {{ request()->is('organizing-committee') || request()->is('welcome-message') || request()->is('/faculties') ? 'active' : '' }}"
                                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Congress Information
                                 </a>
                                 <ul class="dropdown-menu bg-lightgrey p-0 rounded">
-                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
-                                            href="#">Welcome Message</a></li>
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{ request()->is('welcome-message') ? 'text-warning' : '' }}"
+                                            href="/welcome-message">Welcome Message</a></li>
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{ request()->is('organizing-committee') ? 'text-warning' : '' }}"
                                             href="/organizing-committee">Organizing Committee</a></li>
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"

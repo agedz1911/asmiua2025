@@ -10,11 +10,15 @@ use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Registration;
 use App\Livewire\Pages\Schedule;
 use App\Livewire\Pages\Visiting;
+use App\Livewire\Pages\WelcomeMessage;
 use App\Livewire\Section\Sponsor;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class);
-
+// Route::get('/welcome', function() {
+//     return view('welcome');
+// });
+Route::get('/welcome-message', WelcomeMessage::class);
 Route::get('/organizing-committee', Committee::class);
 Route::get('/program-at-glance', AtGlance::class);
 Route::get('/scientific-schedule', Schedule::class);

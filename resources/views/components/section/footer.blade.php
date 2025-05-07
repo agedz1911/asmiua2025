@@ -44,12 +44,12 @@
             </div>
             <div class="footer-menu pb-9">
                 <ul class="p-0 m-0">
-                    <li class="d-inline mx-2"><a href="/submission" wire:navigate><small>Submission</small></a></li>
-                    <li class="d-inline mx-2"><a href="/organizing-committee" wire:navigate><small>Committee</small></a></li>
+                    <li class="d-inline mx-2"><a href="/submission"><small>Submission</small></a></li>
+                    <li class="d-inline mx-2"><a href="/organizing-committee"><small>Committee</small></a></li>
                     <li class="d-inline mx-2"><a href="javascript:void(0)"><small>Faculties</small></a></li>
                     <li class="d-inline mx-2"><a href="javascript:void(0)"><small>Schedule</small></a></li>
-                    <li class="d-inline mx-2"><a href="javascript:void(0)"><small>Registration</small></a></li>
-                    <li class="d-inline mx-2"><a href="javascript:void(0)"><small>Visiting</small></a></li>
+                    <li class="d-inline mx-2"><a href="/registration"><small>Registration</small></a></li>
+                    <li class="d-inline mx-2"><a href="/visiting"><small>Visiting</small></a></li>
                 </ul>
             </div>
         </div>

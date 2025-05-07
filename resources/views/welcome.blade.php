@@ -8,13 +8,16 @@
   <title>Eventen</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!--CSS Plugins-->
-  <link rel="stylesheet" href="css/plugin.css">
-  <!-- Default CSS-->
-  <link rel="stylesheet" href="css/default.css">
-  <!--Custom CSS-->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--CSS Plugins-->
+    <link rel="stylesheet" href="assets/css/plugin.css">
+    <!-- Default CSS-->
+    <link rel="stylesheet" href="assets/css/default.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
 
   <!--FontAwesome CSS-->
