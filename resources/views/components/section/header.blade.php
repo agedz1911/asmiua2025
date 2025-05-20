@@ -88,7 +88,7 @@
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{ request()->is('organizing-committee') ? 'text-warning' : '' }}"
                                             href="/organizing-committee">Organizing Committee</a></li>
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
-                                            href="#">Faculties</a></li>
+                                            href="/faculties">Faculties</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
