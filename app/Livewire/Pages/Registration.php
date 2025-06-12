@@ -21,7 +21,7 @@ class Registration extends Component
     public function render()
     {
         $regs = ModelsRegistration::where('is_active', true)->get();
-        $regLocals = $regs->where('wilayah_reg', 'indonesia');
+        $regLocals = $regs->where('wilayah_reg', 'indonesia')->where('category_reg', 'symposium');
         $regForeigns = $regs->where('wilayah_reg', 'foreign');
         $workshops = $regs->where('category_reg', 'workshop');
         $masterclass = $regs->where('category_reg', 'master class');
