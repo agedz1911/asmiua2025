@@ -15,7 +15,7 @@ class Faculty extends Component
     {
         // $indofaculties = ModelsFaculty::where('is_active', true)->where('country', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
         // $foreignfaculties = ModelsFaculty::where('is_active', true)->where('country', '!=', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
-        $faculties = ModelsFaculty::where('is_active', true)->with('schedules')->orderBy('name', 'asc')->get();
+        $faculties = ModelsFaculty::where('is_active', true)->with('schedules')->orderBy('no_urut', 'asc')->get();
 
         $indofaculties = $faculties->where('country', 'Indonesia')
             ->filter(function ($faculty) {

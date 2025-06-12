@@ -23,24 +23,103 @@
                                 <thead class="table-success text-center">
                                     <tr>
                                         <th scope="col" class="align-top">Category</th>
-                                        <th scope="col" class="align-top">Early Bird Registration <br> up to 10 June 2025
+                                        <th scope="col" class="align-top">Early Bird Registration <br> up to 10 June
+                                            2025
                                         </th>
-                                        <th scope="col" class="align-top">Regular Registration <br> After 10 June 2025</th>
+                                        <th scope="col" class="align-top">Regular Registration <br> After 10 June 2025
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($regLocals as $regLocal)
                                     <tr>
                                         <th scope="row">{{$regLocal->title}}</th>
-                                        <td class="text-center">IDR {{number_format($regLocal->early_bird_reg, 0, ',', '.')}}</td>
-                                        <td class="text-center">IDR {{number_format($regLocal->normal_reg, 0, ',', '.')}}</td>
+                                        <td class="text-center">IDR {{number_format($regLocal->early_bird_reg, 0, ',',
+                                            '.')}}</td>
+                                        <td class="text-center">IDR {{number_format($regLocal->normal_reg, 0, ',',
+                                            '.')}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="relative">
-                            <a href="https://expo.virconex-id.com/registration/asmiua2025/" class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
+                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        </div>
+                    </div>
+                    <div class="price-options g-2 pb-6">
+                        <span class="badge text-bg-warning px-3 rounded mb-3">Masterclass</span>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="table-success text-center">
+                                    <tr>
+                                        <th scope="col" class="align-top">Category</th>
+                                        <th scope="col" class="align-top">Date
+                                        </th>
+                                        <th scope="col" class="align-top">Registration Fee</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($masterclass as $ms)
+                                    <tr>
+                                        <th scope="row">{{$ms->title}}</th>
+                                        <td class="text-center">
+                                            {{\Carbon\Carbon::parse($ms->date_early_bird)->format('l, M jS, Y')}}</td>
+                                        <td class="text-center">IDR
+                                            @if(is_null($ms->early_bird_reg))
+                                            TBA
+                                            @elseif($ms->early_bird_reg == 0)
+                                            Free
+                                            @else
+                                            {{ number_format($ms->early_bird_reg, 0, ',', '.') }}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="relative">
+                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
+                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        </div>
+                    </div>
+                    <div class="price-options g-2 pb-6">
+                        <span class="badge text-bg-warning px-3 rounded mb-3">Workshops</span>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="table-success text-center">
+                                    <tr>
+                                        <th scope="col" class="align-top">Category</th>
+                                        <th scope="col" class="align-top">Date
+                                        </th>
+                                        <th scope="col" class="align-top">Registration Fee</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($workshops as $ws)
+                                    <tr>
+                                        <th scope="row">{{$ws->title}}</th>
+                                        <td class="text-center">
+                                            {{\Carbon\Carbon::parse($ws->date_early_bird)->format('l, M jS, Y')}}</td>
+                                        <td class="text-center">IDR
+                                            @if(is_null($ws->early_bird_reg))
+                                            TBA
+                                            @elseif($ws->early_bird_reg == 0)
+                                            Free
+                                            @else
+                                            {{ number_format($ws->early_bird_reg, 0, ',', '.') }}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="relative">
+                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
+                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +148,8 @@
                         </table>
                     </div>
                     <div class="relative">
-                        <a href="https://expo.virconex-id.com/registration/asmiua2025/" class="btn btn1 mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        <a href="https://expo.virconex-id.com/registration/asmiua2025/"
+                            class="btn btn1 mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
                     </div>
                 </div>
 

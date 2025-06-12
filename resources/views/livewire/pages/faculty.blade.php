@@ -38,6 +38,7 @@
 
                         <div class="sepaker-list">
                             <div class="row">
+                                <small class="text-danger fst-italic mb-3">*within Confirmation</small>
                                 @foreach ($indofaculties as $indo)
                                 <div class="col-lg-3 col-md-6 p-2 text-center text-white">
                                     <div class="speaker-box  position-relative overflow-hidden text-white">
@@ -120,6 +121,7 @@
 
                         <div class="sepaker-list">
                             <div class="row">
+                                <small class="text-danger fst-italic mb-3">*within Confirmation</small>
                                 @foreach ($foreignfaculties as $foreign)
                                 <div class="col-lg-3 col-md-6 p-2 text-center text-white">
                                     <div class="speaker-box  position-relative overflow-hidden text-white">
