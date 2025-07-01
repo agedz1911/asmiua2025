@@ -10,7 +10,7 @@
     </section>
 
     <section class="partners">
-        @foreach ($groupedSponsors as $category => $sponsors)
+        @foreach ($sortedGroupedSponsors as $category => $sponsors)
         <div class="container border-dashed-bottom-2 py-8">
             <div class="partner-inner">
                 <div class="partner-title text-center pb-6 w-lg-60 m-auto">

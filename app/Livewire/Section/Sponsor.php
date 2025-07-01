@@ -15,7 +15,10 @@ class Sponsor extends Component
         $sponsors = ModelsSponsor::where('is_active', true)->get();
 
         $groupedSponsors = $sponsors->groupBy('category');
-
-        return view('livewire.section.sponsor', ['groupedSponsors' => $groupedSponsors]);
+        $orderedCategories = ['Platinum Sponsor', 'Gold Sponsor', 'Silver Sponsor', 'Exhibitors and Scientific Grant'];
+        $sortedGroupedSponsors = $groupedSponsors->sortBy(function ($group, $key) use ($orderedCategories) {
+            return array_search($key, $orderedCategories);
+        });
+        return view('livewire.section.sponsor', ['sortedGroupedSponsors' => $sortedGroupedSponsors]);
     }
 }

@@ -83,12 +83,21 @@
           c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path>
             </svg>
         </div>
+
     </section>
 
     <section class="overview pb-0">
         <div class="container">
+
             <div class="inner-overview pb-10 position-relative border-dashed-bottom-2">
                 <div class="row">
+                    <span class="badge rounded-pill text-dark bg-kuning py-2 fs-5 mb-3">
+                        <marquee behavior="" direction="">
+                            @foreach ($runnings as $text)
+                                {{$text->title}} ~~
+                            @endforeach
+                        </marquee>
+                    </span>
                     <div class="col-lg-6">
                         <div class="overview-left text-center text-lg-start">
                             <div class="overview-title pb-4">
