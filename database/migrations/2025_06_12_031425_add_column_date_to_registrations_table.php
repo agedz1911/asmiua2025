@@ -24,7 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('registrations', function (Blueprint $table) {
-            //
+            $table->dropColumn('date_early_bird');
+            $table->dropColumn('date_normal_reg');
+            $table->dropColumn('date_onsite');
         });
     }
 };

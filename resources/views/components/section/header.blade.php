@@ -98,9 +98,9 @@
                                 </a>
                                 <ul class="dropdown-menu bg-lightgrey p-0 rounded">
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
-                                            href="javascript:void(0)">Program at Glance</a></li>
+                                            href="/program-at-glance">Program at Glance</a></li>
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
-                                            href="javascript:void(0)">Scientific Schedule </a></li>
+                                            href="/scientific-schedule">Scientific Schedule </a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

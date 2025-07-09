@@ -7,6 +7,7 @@ use App\Filament\Clusters\ScientificSchedule\Resources\ScheduleSessionResource\P
 use App\Filament\Clusters\ScientificSchedule\Resources\ScheduleSessionResource\RelationManagers;
 use App\Models\ScheduleSession;
 use Filament\Forms;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -37,6 +38,7 @@ class ScheduleSessionResource extends Resource
                         'Symposium' => 'Symposium',
                         'Workshop' => 'Workshop',
                         'Master Class' => 'Master Class',
+                        'Scientific Competition' => 'Scientific Competition'
                     ])
                     ->native(false),
                 TextInput::make('title_ses')
@@ -44,9 +46,23 @@ class ScheduleSessionResource extends Resource
                 DatePicker::make('date')
                     ->native(false),
                 TextInput::make('time'),
-                TextInput::make('room'),
+                Select::make('room')
+                    ->options([
+                        'Convention 2' => 'Convention 2',
+                        'Ballroom 1' => 'Ballroom 1',
+                        'Ballroom 2' => 'Ballroom 2',
+                        'Santika 15, 16 & 17' => 'Santika 15, 16 & 17',
+                        'Santika 7' => 'Santika 7',
+                        'Santika 8' => 'Santika 8',
+                        'Santika 5 & 6' => 'Santika 5 & 6',
+                        'Santika 10 & 11' => 'Santika 10 & 11',
+                        'Santika 9' => 'Santika 9',
+                        'Santika 12' => 'Santika 12',
+                    ]),
                 TextInput::make('moderator'),
                 Textarea::make('panelist'),
+                TextInput::make('no_urut')
+                    ->numeric(),
             ]);
     }
 
@@ -54,6 +70,8 @@ class ScheduleSessionResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('no_urut')
+                    ->sortable(),
                 TextColumn::make('room')
                     ->searchable()
                     ->sortable(),
