@@ -92,14 +92,14 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle px-2 my-4 py-0" href="#" role="button"
+                                <a class="nav-link dropdown-toggle px-2 my-4 py-0 {{ request()->is('program-at-glance') || request()->is('scientific-schedule')  ? 'active' : '' }}" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Scientific Program
                                 </a>
                                 <ul class="dropdown-menu bg-lightgrey p-0 rounded">
-                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{request()->is('program-at-glance') ? 'text-warning' : ''}}"
                                             href="/program-at-glance">Program at Glance</a></li>
-                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{request()->is('scientific-schedule') ? 'text-warning' : ''}}"
                                             href="/scientific-schedule">Scientific Schedule </a></li>
                                 </ul>
                             </li>

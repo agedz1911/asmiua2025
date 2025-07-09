@@ -83,7 +83,7 @@
                             </div>
                             @foreach ($uniqCategories as $item)
                             @if (
-                            !($date == '2025-09-25' && ($item == 'Workshop' || $item == 'Master Class' ))
+                            !($date == '2025-09-25' && ($item == 'Workshop' ))
                             )
                             <p class="mb-0 mt-5">{{$item}}</p>
 
