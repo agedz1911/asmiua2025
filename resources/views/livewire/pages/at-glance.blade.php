@@ -1336,7 +1336,7 @@
                                     </td>
                                     <td>
                                         @foreach ($duaPuluhTujuh as $santika5)
-                                        @if ($santika5->room == 'Santika 5')
+                                        @if ($santika5->room == 'Santika 5 & 6')
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
