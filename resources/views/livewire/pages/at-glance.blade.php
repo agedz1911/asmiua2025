@@ -1340,7 +1340,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#santika52{{$loop->index}}">
+                                                data-bs-target="#santikalima{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika5->category_sesi}}</small>
@@ -1354,7 +1354,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="santika52{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santikalima{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1755,7 +1755,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#santika82{{$loop->index}}">
+                                                data-bs-target="#santikadelapan{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika8->category_sesi}}</small>
@@ -1769,7 +1769,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="santika82{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santikadelapan{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
