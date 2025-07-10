@@ -96,7 +96,8 @@
                                             <button class="accordion-button collapsed fw-semibold p-0" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#{{$loop->index}}"
                                                 aria-expanded="false" aria-controls="tes">
-                                                {{$atglance->title_ses}}
+                                                {{$atglance->title_ses}} -  <small class="fst-italic"> {{$atglance->room}}</small>
+                                                
                                             </button>
                                         </p>
                                         <div id="{{$loop->index}}" class="accordion-collapse collapse"

@@ -92,7 +92,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle px-2 my-4 py-0 {{ request()->is('program-at-glance') || request()->is('scientific-schedule')  ? 'active' : '' }}" href="#" role="button"
+                                <a class="nav-link dropdown-toggle px-2 my-4 py-0 {{ request()->is('program-at-glance') || request()->is('scientific-schedule')  ? 'active' : '' }}" href="/program-at-glance" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Scientific Program
                                 </a>

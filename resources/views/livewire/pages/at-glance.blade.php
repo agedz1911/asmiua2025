@@ -569,7 +569,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#convention{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$convention->category_sesi}}</small>
@@ -584,7 +584,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="convention{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -736,7 +736,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#ballroom2{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$ballroom2->category_sesi}}</small>
@@ -750,7 +750,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="ballroom2{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -819,7 +819,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika5{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika5->category_sesi}}</small>
@@ -833,7 +833,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika5{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -902,7 +902,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika15{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika15->category_sesi}}</small>
@@ -916,7 +916,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika15{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -985,7 +985,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika7{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika7->category_sesi}}</small>
@@ -999,7 +999,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika7{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1068,7 +1068,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika8{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika8->category_sesi}}</small>
@@ -1082,7 +1082,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika8{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1257,7 +1257,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika15dua{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika15->category_sesi}}</small>
@@ -1271,7 +1271,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika15dua{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1340,7 +1340,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika52{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika5->category_sesi}}</small>
@@ -1354,7 +1354,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika52{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1423,7 +1423,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika72{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika7->category_sesi}}</small>
@@ -1437,7 +1437,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika72{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1506,7 +1506,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika10dua{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika10->category_sesi}}</small>
@@ -1520,7 +1520,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika10dua{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1589,7 +1589,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika9{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika9->category_sesi}}</small>
@@ -1603,7 +1603,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika9{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1672,7 +1672,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika12{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika12->category_sesi}}</small>
@@ -1686,7 +1686,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika12{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -1755,7 +1755,7 @@
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{$loop->index}}">
+                                                data-bs-target="#santika82{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
                                                         class="badge text-light bg-success py-2">{{$santika8->category_sesi}}</small>
@@ -1769,7 +1769,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                        <div class="modal fade" id="santika82{{$loop->index}}" tabindex="-1"
                                             aria-labelledby="InaSPUModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
