@@ -76,6 +76,7 @@ class ScheduleSessionResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('title_ses')
+                    ->searchable()
                     ->label('Session Title'),
                 TextColumn::make('date')
                     ->sortable()

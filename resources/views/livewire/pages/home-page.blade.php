@@ -7,7 +7,34 @@
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="banner-left text-center pb-lg-5 p-md-0">
                             <div class="banner-image">
-                                <img src="assets/images/banner.png" alt="banner-image" class="w-75"><br>
+                                <div id="carouselFlyer" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach ($flyers as $index => $flyer)
+                                        <div class="carousel-item {{$index === 0 ? 'active' : '' }}">
+                                            <img src="{{asset('storage/' . $flyer->image)}}" alt="banner-image"
+                                                class="w-75 rounded-4">
+                                            @if ($flyer->caption != null)
+
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <a href="{{$flyer->caption}}" class="btn"><small> Registration <i
+                                                            class="fa fa-angle-double-right"></i></small></a>
+                                            </div>
+                                            @endif
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFlyer"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselFlyer"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+
                             </div>
                             <div class="countdown">
                                 <div id="countdown"
@@ -91,13 +118,15 @@
 
             <div class="inner-overview pb-10 position-relative border-dashed-bottom-2">
                 <div class="row">
+                    @if ($runnings->isNotEmpty())
                     <span class="badge rounded-pill text-dark bg-kuning py-2 fs-5 mb-3">
                         <marquee behavior="" direction="">
                             @foreach ($runnings as $text)
-                                {{$text->title}} ~~
+                            {{$text->title}} ~~
                             @endforeach
                         </marquee>
                     </span>
+                    @endif
                     <div class="col-lg-6">
                         <div class="overview-left text-center text-lg-start">
                             <div class="overview-title pb-4">
@@ -248,7 +277,8 @@
                             <div class="general-ques-right">
                                 <div class="section-title pb-4 text-center text-lg-start">
                                     {!! Str::limit(str($message->description)->markdown()->sanitizeHtml(), 500) !!}
-                                    <a href="/welcome-message#{{$message->id}}" class="kuning"><i class="fa fa-angle-right fs-6"></i> Read More...</a>
+                                    <a href="/welcome-message#{{$message->id}}" class="kuning"><i
+                                            class="fa fa-angle-right fs-6"></i> Read More...</a>
                                 </div>
                                 <div class="speaker-statement-box p-4 rounded bg-blue w-lg-80 mb-mi">
                                     <div class="speaker-statement ps-4 border-start border-white border-7">
