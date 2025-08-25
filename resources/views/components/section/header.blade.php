@@ -110,9 +110,17 @@
                                 <a class="nav-link px-2 my-4 py-0 {{ request()->is('accommodation') ? 'active' : '' }}"
                                     href="/accommodation">Accommodation</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link px-2 my-4 py-0 {{ request()->is('submission') ? 'active' : '' }}"
-                                    href="/submission">Submission</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle px-3 my-4 py-0 {{ request()->is('submission') || request()->is('presentation-schedule') ? 'active' : '' }}"
+                                    href="#">Free Paper</a>
+                                <ul class="dropdown-menu bg-lightgrey p-0 rounded">
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{ request()->is('presentation-schedule') ? 'text-warning' : '' }}"
+                                            href="/presentation-schedule">Free Paper Schedule</a></li>
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0"
+                                            href="https://expo.virconex-id.com/eposter/asmiua2025/input_eposter/login.php">Free Paper Presentation Submission</a></li>
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{ request()->is('submission') ? 'text-warning' : '' }}"
+                                            href="/submission">Submission</a></li>
+                                </ul>
                             </li>
 
                             <li class="nav-item dropdown">

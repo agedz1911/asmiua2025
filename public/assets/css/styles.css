@@ -1303,3 +1303,15 @@ footer .overlay {
     scale: 105%;
     transition: 300ms;
 }
+
+.page-link{
+    color: #00474f;
+}
+
+.page-link:hover{
+    color: #00474f;
+}
+.active > .page-link, .page-link.active {
+    background-color: #00474f !important;
+    border-color: #00474f !important;
+}
