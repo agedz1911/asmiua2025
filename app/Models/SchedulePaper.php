@@ -16,6 +16,8 @@ class SchedulePaper extends Model
         'code_abstract',
         'name_participant',
         'title',
+        'institution',
+        'country',
         'date_presenter',
         'time_presenter',
         'room',

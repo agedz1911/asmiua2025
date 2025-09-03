@@ -84,10 +84,10 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item {{ $selectedCategory == 'Podium Poster Presentation' ? 'text-warning' : '' }}"
+                                                        <a class="dropdown-item {{ $selectedCategory == 'Moderated e-Poster' ? 'text-warning' : '' }}"
                                                             href="#"
-                                                            wire:click.prevent="filterByCategory('Podium Poster Presentation')">
-                                                            Podium Poster Presentation
+                                                            wire:click.prevent="filterByCategory('Moderated e-Poster')">
+                                                            Moderated e-Poster
                                                         </a>
                                                     </li>
                                                     <li>
@@ -137,6 +137,8 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Category</th>
                                             <th scope="col">Title</th>
+                                            <th scope="col">Insitution</th>
+                                            <th scope="col">Country</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Time</th>
                                             <th scope="col">Room</th>
@@ -150,13 +152,15 @@
                                             <td>
                                                 @if ($paper->paperCategory->name == 'Podium Presentation')
                                                 <span class="badge bg-success">{{$paper->paperCategory->name}}</span>
-                                                @elseif ($paper->paperCategory->name == 'Podium Poster Presentation')
+                                                @elseif ($paper->paperCategory->name == 'Moderated e-Poster')
                                                 <span class="badge bg-primary">{{$paper->paperCategory->name}}</span>
                                                 @elseif ($paper->paperCategory->name == 'Unmoderated Poster')
                                                 <span class="badge bg-warning">{{$paper->paperCategory->name}}</span>
                                                 @endif
                                             </td>
                                             <td>{{$paper->title}}</td>
+                                            <td>{{$paper->institution}}</td>
+                                            <td>{{$paper->country}}</td>
                                             <td>{{$paper->date_presenter}}</td>
                                             <td>{{$paper->time_presenter}}</td>
                                             <td>{{$paper->room}}</td>
@@ -181,5 +185,7 @@
             </div>
         </div>
     </section>
+
+    {{-- <livewire:section.free-paper-api /> --}}
 
 </div>

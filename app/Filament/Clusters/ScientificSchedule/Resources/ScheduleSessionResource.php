@@ -58,6 +58,7 @@ class ScheduleSessionResource extends Resource
                         'Santika 10 & 11' => 'Santika 10 & 11',
                         'Santika 9' => 'Santika 9',
                         'Santika 12' => 'Santika 12',
+                        'Foyer 2nd Floor' => 'Foyer 2nd Floor',
                     ]),
                 TextInput::make('moderator'),
                 Textarea::make('panelist'),

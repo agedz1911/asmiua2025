@@ -10,9 +10,12 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
+
+use function Pest\Laravel\json;
 
 class FreePaperSchedule extends Component
 {
@@ -27,6 +30,7 @@ class FreePaperSchedule extends Component
     public function mount()
     {
         $this->presentationGuides = GuidelineAbstract::where('category', 'Presentation Guidelines')->orderBy('no_urut', 'asc')->get();
+        
     }
 
     public function filterByCategory($category)
@@ -64,6 +68,7 @@ class FreePaperSchedule extends Component
                 $subQuery->where('code_abstract', 'like', '%' . $this->search . '%')
                     ->orWhere('name_participant', 'like', '%' . $this->search . '%')
                     ->orWhere('title', 'like', '%' . $this->search . '%')
+                    ->orWhere('institution', 'like', '%' . $this->search . '%')
                     ->orWhereHas('paperCategory', function ($q) {
                         $q->where('name', 'like', '%' . $this->search . '%');
                     });

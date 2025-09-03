@@ -35,8 +35,11 @@
                                     <th style="width: 11%" class="text-center" scope="col">Ballroom 1</th>
                                     <th style="width: 11%" class="text-center" scope="col">Ballroom 2</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 15, 16 & 17</th>
+                                    <th style="width: 11%" class="text-center" scope="col">Santika 5 & 6</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 7</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 8</th>
+                                    <th style="width: 11%" class="text-center" scope="col">Foyer 2nd Floor</th>
+                                    <th style="width: 11%" class="text-center" scope="col">Santika 9</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -374,6 +377,89 @@
                                         @endforeach
                                     </td>
                                     <td>
+                                        @foreach ($duaPuluhLima as $santika5_25)
+                                        @if ($santika5_25->room == 'Santika 5 & 6')
+                                        <div class="d-flex flex-column mb-2">
+                                            <div class="card position-relative program-atglance shadow"
+                                                style="cursor: pointer" data-bs-toggle="modal"
+                                                data-bs-target="#modal{{$loop->index}}">
+                                                <div class="card-header">
+                                                    <small
+                                                        class="badge text-light bg-success py-2">{{$santika5_25->category_sesi}}</small>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <p class="black fw-bold text-center">{{$santika5_25->time}}</p>
+                                                    <p class="mb-0 text-muted text-center">{{$santika5_25->title_ses}}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                            aria-labelledby="InaSPUModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="InaSPUModalLabel">
+                                                            {{$santika5_25->title_ses}}</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="d-flex flex-row justify-content-between">
+                                                            <div>
+                                                                <p class="mb-0">Date :<span class="fw-bold black">
+                                                                        {{\Carbon\Carbon::parse($santika5_25->date)->format('d
+                                                                        F Y')}}</p>
+                                                                <p class="">Time :<span class="fw-bold black">
+                                                                        {{$santika5_25->time}}
+                                                                    </span></p>
+                                                            </div>
+                                                            <div>
+                                                                <p class="">Room :<span class="fw-bold black">
+                                                                        {{$santika5_25->room}}
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0">Session : <span class="fw-bold black">
+                                                                {{$santika5_25->title_ses}}</span></p>
+                                                        <p class="">Moderator : <span class="fw-bold black">
+                                                                {{$santika5_25->moderator}}
+                                                            </span></p>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="width: 18%">Time</th>
+                                                                    <th scope="col">Topic</th>
+                                                                    <th scope="col">Speaker</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($santika5_25->schedules as $schedule)
+
+                                                                <tr>
+                                                                    <th scope="row">{{$schedule->time_speaker}}</th>
+                                                                    <td>{{$schedule->topic_title}}</td>
+                                                                    <td>{{$schedule->speaker}}</td>
+                                                                </tr>
+                                                                @endforeach
+
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn1 "
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </td>
+                                    <td>
                                         @foreach ($duaPuluhLima as $santika7)
                                         @if ($santika7->room == 'Santika 7')
                                         <div class="d-flex flex-column mb-2">
@@ -539,6 +625,172 @@
                                         </div>
                                         @endforeach
                                     </td>
+                                    <td>
+                                        @foreach ($duaPuluhLima as $foyer)
+                                        @if ($foyer->room == 'Foyer 2nd Floor')
+                                        <div class="d-flex flex-column mb-2">
+                                            <div class="card position-relative program-atglance shadow"
+                                                style="cursor: pointer" data-bs-toggle="modal"
+                                                data-bs-target="#modal{{$loop->index}}">
+                                                <div class="card-header">
+                                                    <small
+                                                        class="badge text-light bg-success py-2">{{$foyer->category_sesi}}</small>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <p class="black fw-bold text-center">{{$foyer->time}}</p>
+                                                    <p class="mb-0 text-muted text-center">{{$foyer->title_ses}}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                            aria-labelledby="InaSPUModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="InaSPUModalLabel">
+                                                            {{$foyer->title_ses}}</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="d-flex flex-row justify-content-between">
+                                                            <div>
+                                                                <p class="mb-0">Date :<span class="fw-bold black">
+                                                                        {{\Carbon\Carbon::parse($foyer->date)->format('d
+                                                                        F Y')}}</p>
+                                                                <p class="">Time :<span class="fw-bold black">
+                                                                        {{$foyer->time}}
+                                                                    </span></p>
+                                                            </div>
+                                                            <div>
+                                                                <p class="">Room :<span class="fw-bold black">
+                                                                        {{$foyer->room}}
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0">Session : <span class="fw-bold black">
+                                                                {{$foyer->title_ses}}</span></p>
+                                                        <p class="">Moderator : <span class="fw-bold black">
+                                                                {{$foyer->moderator}}
+                                                            </span></p>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="width: 18%">Time</th>
+                                                                    <th scope="col">Topic</th>
+                                                                    <th scope="col">Speaker</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($foyer->schedules as $schedule)
+
+                                                                <tr>
+                                                                    <th scope="row">{{$schedule->time_speaker}}</th>
+                                                                    <td>{{$schedule->topic_title}}</td>
+                                                                    <td>{{$schedule->speaker}}</td>
+                                                                </tr>
+                                                                @endforeach
+
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn1 "
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach ($duaPuluhLima as $santika9_25)
+                                        @if ($santika9_25->room == 'Santika 9')
+                                        <div class="d-flex flex-column mb-2">
+                                            <div class="card position-relative program-atglance shadow"
+                                                style="cursor: pointer" data-bs-toggle="modal"
+                                                data-bs-target="#modal{{$loop->index}}">
+                                                <div class="card-header">
+                                                    <small
+                                                        class="badge text-light bg-success py-2">{{$santika9_25->category_sesi}}</small>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <p class="black fw-bold text-center">{{$santika9_25->time}}</p>
+                                                    <p class="mb-0 text-muted text-center">{{$santika9_25->title_ses}}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        <div class="modal fade" id="modal{{$loop->index}}" tabindex="-1"
+                                            aria-labelledby="InaSPUModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="InaSPUModalLabel">
+                                                            {{$santika9_25->title_ses}}</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="d-flex flex-row justify-content-between">
+                                                            <div>
+                                                                <p class="mb-0">Date :<span class="fw-bold black">
+                                                                        {{\Carbon\Carbon::parse($santika9_25->date)->format('d
+                                                                        F Y')}}</p>
+                                                                <p class="">Time :<span class="fw-bold black">
+                                                                        {{$santika9_25->time}}
+                                                                    </span></p>
+                                                            </div>
+                                                            <div>
+                                                                <p class="">Room :<span class="fw-bold black">
+                                                                        {{$santika9_25->room}}
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0">Session : <span class="fw-bold black">
+                                                                {{$santika9_25->title_ses}}</span></p>
+                                                        <p class="">Moderator : <span class="fw-bold black">
+                                                                {{$santika9_25->moderator}}
+                                                            </span></p>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="width: 18%">Time</th>
+                                                                    <th scope="col">Topic</th>
+                                                                    <th scope="col">Speaker</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($santika9_25->schedules as $schedule)
+
+                                                                <tr>
+                                                                    <th scope="row">{{$schedule->time_speaker}}</th>
+                                                                    <td>{{$schedule->topic_title}}</td>
+                                                                    <td>{{$schedule->speaker}}</td>
+                                                                </tr>
+                                                                @endforeach
+
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn1 "
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -558,7 +810,7 @@
                                     <th style="width: 11%" class="text-center" scope="col">Santika 5, 6</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 15, 16 & 17</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 7</th>
-                                    <th style="width: 11%" class="text-center" scope="col">Santika 8</th>
+                                    {{-- <th style="width: 11%" class="text-center" scope="col">Santika 8</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -1062,7 +1314,7 @@
                                         </div>
                                         @endforeach
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         @foreach ($duaPuluhEnam as $santika8)
                                         @if ($santika8->room == 'Santika 8')
                                         <div class="d-flex flex-column mb-2">
@@ -1144,7 +1396,7 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             </tbody>
                         </table>
@@ -1155,33 +1407,33 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th style="width: 11%" class="text-center" scope="col">Convention 2</th>
+                                    <th style="width: 11%" class="text-center" scope="col">Ballroom 2</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 15, 16 & 17</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 5, 6</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 7</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 10, 11</th>
                                     <th style="width: 11%" class="text-center" scope="col">Santika 9</th>
-                                    <th style="width: 11%" class="text-center" scope="col">Santika 12</th>
+                                    {{-- <th style="width: 11%" class="text-center" scope="col">Santika 12</th> --}}
                                     <th style="width: 11%" class="text-center" scope="col">Santika 8</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        @foreach ($duaPuluhTujuh as $convention)
-                                        @if ($convention->room == 'Convention 2')
+                                        @foreach ($duaPuluhTujuh as $ballroom2_27)
+                                        @if ($ballroom2_27->room == 'Ballroom 2')
                                         <div class="d-flex flex-column mb-2">
                                             <div class="card position-relative program-atglance shadow"
                                                 style="cursor: pointer" data-bs-toggle="modal"
                                                 data-bs-target="#tes{{$loop->index}}">
                                                 <div class="card-header">
                                                     <small
-                                                        class="badge text-light bg-success py-2">{{$convention->category_sesi}}</small>
+                                                        class="badge text-light bg-success py-2">{{$ballroom2_27->category_sesi}}</small>
                                                 </div>
                                                 <div class="card-body">
 
-                                                    <p class="black fw-bold text-center">{{$convention->time}}</p>
-                                                    <p class="mb-0 text-muted text-center">{{$convention->title_ses}}
+                                                    <p class="black fw-bold text-center">{{$ballroom2_27->time}}</p>
+                                                    <p class="mb-0 text-muted text-center">{{$ballroom2_27->title_ses}}
                                                     </p>
 
                                                 </div>
@@ -1194,7 +1446,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h1 class="modal-title fs-5" id="InaSPUModalLabel">
-                                                            {{$convention->title_ses}}</h1>
+                                                            {{$ballroom2_27->title_ses}}</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
@@ -1202,23 +1454,23 @@
                                                         <div class="d-flex flex-row justify-content-between">
                                                             <div>
                                                                 <p class="mb-0">Date :<span class="fw-bold black">
-                                                                        {{\Carbon\Carbon::parse($convention->date)->format('d
+                                                                        {{\Carbon\Carbon::parse($ballroom2_27->date)->format('d
                                                                         F Y')}}</p>
                                                                 <p class="">Time :<span class="fw-bold black">
-                                                                        {{$convention->time}}
+                                                                        {{$ballroom2_27->time}}
                                                                     </span></p>
                                                             </div>
                                                             <div>
                                                                 <p class="">Room :<span class="fw-bold black">
-                                                                        {{$convention->room}}
+                                                                        {{$ballroom2_27->room}}
                                                                     </span>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <p class="mb-0">Session : <span class="fw-bold black">
-                                                                {{$convention->title_ses}}</span></p>
+                                                                {{$ballroom2_27->title_ses}}</span></p>
                                                         <p class="">Moderator : <span class="fw-bold black">
-                                                                {{$convention->moderator}}
+                                                                {{$ballroom2_27->moderator}}
                                                             </span></p>
                                                         <table class="table">
                                                             <thead>
@@ -1229,7 +1481,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach ($convention->schedules as $schedule)
+                                                                @foreach ($ballroom2_27->schedules as $schedule)
 
                                                                 <tr>
                                                                     <th scope="row">{{$schedule->time_speaker}}</th>
@@ -1666,7 +1918,7 @@
                                         </div>
                                         @endforeach
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         @foreach ($duaPuluhTujuh as $santika12)
                                         @if ($santika12->room == 'Santika 12')
                                         <div class="d-flex flex-column mb-2">
@@ -1748,7 +2000,7 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         @foreach ($duaPuluhTujuh as $santika8)
                                         @if ($santika8->room == 'Santika 8')

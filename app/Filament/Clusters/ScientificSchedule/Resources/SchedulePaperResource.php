@@ -25,6 +25,8 @@ class SchedulePaperResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $countries = countries();
+
         return $form
             ->schema([
                 Select::make('category_id')
@@ -37,11 +39,21 @@ class SchedulePaperResource extends Resource
                 Forms\Components\TextInput::make('name_participant')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('institution')
+                    ->required()
+                    ->maxLength(255),
+                Select::make('country')
+                    ->options(collect($countries)->mapWithKeys(function ($country) {
+                        return [$country['name'] => $country['name']];
+                    })->all())
+                    ->searchable(),
                 Forms\Components\TextInput::make('title')
 
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('date_presenter'),
-                Forms\Components\TextInput::make(''),
+                Forms\Components\TimePicker::make('time_presenter')
+                    ->seconds(false),
+                Forms\Components\TextInput::make('room'),
                 Forms\Components\Toggle::make('is_active')
                     ->default(true)
                     ->required(),
@@ -56,7 +68,7 @@ class SchedulePaperResource extends Resource
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'Podium Presentation' => 'success',
-                        'Podium Poster Presentation' => 'info',
+                        'Moderated e-Poster' => 'info',
                         'Unmoderated Poster' => 'warning',
                     })
                     ->sortable(),
