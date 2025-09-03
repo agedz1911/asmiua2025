@@ -161,7 +161,7 @@
                                             <td>{{$paper->title}}</td>
                                             <td>{{$paper->institution}}</td>
                                             <td>{{$paper->country}}</td>
-                                            <td>{{$paper->date_presenter}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($paper->date_presenter)->translatedFormat('d F Y') }}</td>
                                             <td>{{$paper->time_presenter}}</td>
                                             <td>{{$paper->room}}</td>
                                         </tr>
