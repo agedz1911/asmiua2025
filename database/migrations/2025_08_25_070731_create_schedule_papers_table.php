@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('institution')->nullable();
             $table->string('country')->nullable();
             $table->date('date_presenter')->nullable();
-            $table->time('time_presenter')->nullable();
+            $table->string('time_presenter')->nullable();
             $table->string('room')->nullable();
             $table->boolean('is_active')->default(true);
             $table->softDeletes();

@@ -51,8 +51,7 @@ class SchedulePaperResource extends Resource
 
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('date_presenter'),
-                Forms\Components\TimePicker::make('time_presenter')
-                    ->seconds(false),
+                Forms\Components\TextInput::make('time_presenter'),
                 Forms\Components\TextInput::make('room'),
                 Forms\Components\Toggle::make('is_active')
                     ->default(true)
