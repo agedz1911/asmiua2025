@@ -17,8 +17,7 @@
                         <i class="fa-solid fa-search"></i>
                     </span>
                     <input type="text" wire:model.live.debounce.500ms='searchTerm' class="form-control border"
-                        placeholder="Search Faculties" aria-label="Search Faculties"
-                        aria-describedby="basic-addon1">
+                        placeholder="Search Faculties" aria-label="Search Faculties" aria-describedby="basic-addon1">
                 </div>
             </div>
             <div class="speaker-inner">
@@ -91,12 +90,15 @@
                                                             <p class="fw-bold">Session</p>
                                                             @foreach ($indo->schedules as $schedule)
                                                             <div class="d-flex gap-5 text-success fw-bold">
-                                                                <p>{{\Carbon\Carbon::parse($schedule->sesi->date)->format('d
-                                                                    F Y')}}</p>
+                                                                <p>{{
+                                                                    $schedule->sesi && $schedule->sesi->date ?
+                                                                    \Carbon\Carbon::parse($schedule->sesi->date)->format('d
+                                                                    F Y') : 'Tanggal tidak tersedia'
+                                                                    }}</p>
                                                                 <p>{{$schedule->time_speaker}}</p>
-                                                                <p>{{$schedule->sesi->room}}</p>
+                                                                <p>{{$schedule->sesi && $schedule->sesi->room ? $schedule->sesi->room : 'room not available'}}</p>
                                                             </div>
-                                                            <p class="fw-bold black mb-1">{{$schedule->sesi->title_ses}}
+                                                            <p class="fw-bold black mb-1">{{$schedule->sesi && $schedule->sesi->title_ses ? $schedule->sesi->title_ses : 'title not available'}}
                                                             </p>
                                                             <p class="black mb-5 border-dashed-bottom-2 pb-3">
                                                                 {{$schedule->topic_title}}</p>
@@ -177,12 +179,15 @@
                                                             <p class="fw-bold">Session</p>
                                                             @foreach ($foreign->schedules as $schedule)
                                                             <div class="d-flex gap-5 text-success fw-bold">
-                                                                <p>{{\Carbon\Carbon::parse($schedule->sesi->date)->format('d
-                                                                    F Y')}}</p>
+                                                                <p>{{
+                                                                    $schedule->sesi && $schedule->sesi->date ?
+                                                                    \Carbon\Carbon::parse($schedule->sesi->date)->format('d
+                                                                    F Y') : 'Tanggal tidak tersedia'
+                                                                    }}</p>
                                                                 <p>{{$schedule->time_speaker}}</p>
-                                                                <p>{{$schedule->sesi->room}}</p>
+                                                                <p>{{$schedule->sesi && $schedule->sesi->room ? $schedule->sesi->room : 'room not available'}}</p>
                                                             </div>
-                                                            <p class="fw-bold black mb-1">{{$schedule->sesi->title_ses}}
+                                                            <p class="fw-bold black mb-1">{{$schedule->sesi && $schedule->sesi->title_ses ? $schedule->sesi->title_ses : 'title not available'}}
                                                             </p>
                                                             <p class="black mb-5 border-dashed-bottom-2 pb-3">
                                                                 {{$schedule->topic_title}}</p>

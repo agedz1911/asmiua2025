@@ -101,6 +101,8 @@
                                             href="/program-at-glance">Program at Glance</a></li>
                                     <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{request()->is('scientific-schedule') ? 'text-warning' : ''}}"
                                             href="/scientific-schedule">Scientific Schedule </a></li>
+                                    <li><a class="dropdown-item py-3 px-6 text-capitalize black border-0 {{request()->is('scientific-schedule') ? 'text-warning' : ''}}"
+                                            href="/download/Program_Schedule-ASMIUA_2025.pdf" target="_blank">Program Book </a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

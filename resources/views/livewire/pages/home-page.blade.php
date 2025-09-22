@@ -89,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
                                             <a class="btn me-3 my-1 w-100 text-uppercase"
-                                                href="/registration">REGISTER</a>
+                                                href="/download/Program_Schedule-ASMIUA_2025.pdf" target="_blank">Download Program Book</a>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <a class="btn btn2 my-1 w-100 text-uppercase" href="/visiting">read more</a>
