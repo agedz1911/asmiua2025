@@ -1,11 +1,8 @@
 <div>
-    <section class="banner page-banner position-relative pb-0">
-        <div class="overlay">
-        </div>
-        <div class="container">
-            <div class="page-title text-center position-relative py-11">
-                <h2 class="text-white text-uppercase">Registration</h2>
-            </div>
+    <section class="breadcrumbs relative pb-0">
+        {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
+        <div class="py-16 lg:py-28 text-center relative">
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
         </div>
     </section>
 

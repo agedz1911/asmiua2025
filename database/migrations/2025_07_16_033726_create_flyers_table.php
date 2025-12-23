@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('flyers', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->string('image');
-            $table->string('caption')->nullable();
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
+            $table->unsignedInteger('no_urut')->default(0);
             $table->timestamps();
         });
     }

@@ -30,20 +30,26 @@ class FlyerResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')
-                    ->label('Image')
-                    ->helperText(new HtmlString('<small style="color:red; "><sup>*</sup><i>Max 2Mb</i></small>'))
-                    ->maxSize(2048)
+                Forms\Components\FileUpload::make('image')
+                    ->maxSize(3072)
                     ->downloadable()
                     ->reorderable()
                     ->panelLayout('grid')
                     ->image()
                     ->imageEditor()
-                    ->directory('flyer'),
-                TextInput::make('caption')
-                ->label('Url')
-                    ->url(),
-                Toggle::make('is_active')->default(true)
+                    ->required()
+                    ->directory('Flyer'),
+                Forms\Components\TextInput::make('title')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\Textarea::make('description'),
+                Forms\Components\TextInput::make('no_urut')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\Toggle::make('is_active')
+                    ->inline()
+                    ->default(true)
+                    ->required(),
             ]);
     }
 
@@ -51,9 +57,22 @@ class FlyerResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image'),
-                TextColumn::make('caption'),
-                ToggleColumn::make('is_active')
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                Tables\Columns\IconColumn::make('is_active')
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('no_urut')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

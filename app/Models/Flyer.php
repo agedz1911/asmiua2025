@@ -8,8 +8,10 @@ class Flyer extends Model
 {
     
     protected $fillable = [
+        'title',
         'image',
         'caption',
-        'is_active'
+        'is_active',
+        'no_urut'
     ];
 }
