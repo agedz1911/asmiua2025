@@ -15,23 +15,25 @@ class Faculty extends Component
     {
         // $indofaculties = ModelsFaculty::where('is_active', true)->where('country', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
         // $foreignfaculties = ModelsFaculty::where('is_active', true)->where('country', '!=', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
-        $faculties = ModelsFaculty::where('is_active', true)->with('schedules')->orderBy('no_urut', 'asc')->get();
-
-        $indofaculties = $faculties->where('country', 'Indonesia')
-            ->filter(function ($faculty) {
-                if (strlen($this->searchTerm) >= 3) {
-                    return str_contains(strtolower($faculty->name), strtolower($this->searchTerm));
-                }
-                return true;
+        $queryIndo = ModelsFaculty::where('is_active', true)->with('schedules')->where('country', 'Indonesia');
+        $queryForeign = ModelsFaculty::where('is_active', true)->with('schedules')->where('country', '!=', 'Indonesia');
+        if (strlen($this->searchTerm) >= 3) {
+            $queryIndo->where(function ($q) {
+                $q->where('name', 'like', '%' . $this->searchTerm . '%');
             });
-
-        $foreignfaculties = $faculties->where('country', '!=', 'Indonesia')
-            ->filter(function ($faculty) {
-                if (strlen($this->searchTerm) >= 3) {
-                    return str_contains(strtolower($faculty->name), strtolower($this->searchTerm));
-                }
-                return true;
+        }
+        if (strlen($this->searchTerm) >= 3) {
+            $queryForeign->where(function ($q) {
+                $q->where('name', 'like', '%' . $this->searchTerm . '%');
             });
+        }
+        $indofaculties = $queryIndo
+            ->orderBy('name', 'asc')
+            ->paginate(12);
+
+        $foreignfaculties = $queryForeign
+            ->orderBy('name', 'asc')
+            ->paginate(12);
 
         return view('livewire.pages.faculty', ['indofaculties' => $indofaculties, 'foreignfaculties' => $foreignfaculties]);
     }

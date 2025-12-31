@@ -2,212 +2,172 @@
     <section class="breadcrumbs relative pb-0">
         {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
         <div class="py-16 lg:py-28 text-center relative">
-            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Faculties</h2>
         </div>
     </section>
 
-    <section class="speakers">
-        <div class="container">
-            <div class="px-3 pb-5">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-search"></i>
-                    </span>
-                    <input type="text" wire:model.live.debounce.500ms='searchTerm' class="form-control border"
-                        placeholder="Search Faculties" aria-label="Search Faculties" aria-describedby="basic-addon1">
-                </div>
+    <section class="mx-auto w-full px-5 md:px-10 pt-0 pb-10 md:py-20">
+        <div class="">
+            <div class="w-full px-3">
+                <label class="input input-accent rounded-xl input-lg w-full">
+                    <i class="fa-solid fa-search h-[1em] opacity-50"></i>
+                    <input wire:model.live.debounce.500ms="searchTerm" type="text" class="w-full" required
+                        placeholder="Search Faculties.." />
+                </label>
             </div>
-            <div class="speaker-inner">
-                <nav>
-                    <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="indonesian-tab" data-bs-toggle="tab"
-                            data-bs-target="#indonesian" type="button" role="tab" aria-controls="indonesian"
-                            aria-selected="true">Indonesian Faculties</button>
-                        <button class="nav-link" id="foreign-tab" data-bs-toggle="tab" data-bs-target="#foreign"
-                            type="button" role="tab" aria-controls="foreign" aria-selected="false">Foreign
-                            Faculties</button>
-                    </div>
-                </nav>
-                <div class="tab-content mt-5" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="indonesian" role="tabpanel"
-                        aria-labelledby="indonesian-tab" tabindex="0">
+            <div class="mt-10">
+                <!-- name of each tab group should be unique -->
+                <div class="tabs tabs-border justify-evenly">
+                    <input type="radio" name="my_tabs_2"
+                        class="tab uppercase tracking-wider text-lg text-accent hover:text-[#008068]"
+                        aria-label="Indonesian Faculties" checked="checked" />
+                    <div class="tab-content  p-5 rounded-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                            @foreach ($indofaculties as $indo)
+                            <div class="card bg-base-100 shadow-sm p-0 hover:shadow-md hover:scale-105 transition-all duration-200">
+                                <figure onclick="my_modal_{{$loop->index}}.showModal()" class="relative hover:cursor-pointer ">
+                                    <img src="{{$indo->image ? asset('storage/' . $indo->image) : "
+                                        assets/images/speaker.png"}}" alt="{{$indo->name}}"
+                                        class="w-full h-full object-cover rounded">
+                                </figure>
+                                <div class="card-body text-center">
+                                    <h2 onclick="my_modal_{{$loop->index}}.showModal()"
+                                        class="text-xl font-semibold text-[#008068] hover:text-accent hover:cursor-pointer">
+                                        {{$indo->name}}
+                                    </h2>
+                                    <p>{{$indo->description}}</p>
+                                </div>
+                            </div>
 
-                        <div class="sepaker-list">
-                            <div class="row">
-                                <small class="text-danger fst-italic mb-3">*within Confirmation</small>
-                                @foreach ($indofaculties as $indo)
-                                <div class="col-lg-3 col-md-6 p-2 text-center text-white">
-                                    <div class="speaker-box  position-relative overflow-hidden text-white">
-                                        <img class="speaker-image rounded w-100"
+
+                            <dialog id="my_modal_{{$loop->index}}" class="modal">
+                                <div class="modal-box w-10/12 max-w-5xl">
+                                    <form method="dialog">
+                                        <button
+                                            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                    </form>
+                                    <div class="flex items-center gap-3 pb-3">
+                                        <img class="rounded-full bg-accent/20 shadow w-20 object-cover"
                                             src="{{$indo->image ? asset('storage/' . $indo->image) : "
-                                            assets/images/speakers.jpg"}}" alt="{{$indo->name}}">
-                                        <div class="box-content position-absolute bottom-0 z-1 pt-5">
-                                            <h6 class="speaker-title d-block faculty mb-0" data-bs-toggle="modal"
-                                                data-bs-target="#{{$loop->index}}">{{$indo->name}}
-                                            </h6>
-                                            <span class="pb-2 speaker-post d-block">{{$indo->country}}</span>
-                                            <small data-bs-toggle="modal" data-bs-target="#{{$loop->index}}"
-                                                class="rounded pb-2 ps-0 d-block social-link faculty me-1">Read
-                                                More..</small>
+                                            assets/images/speaker.png"}}" alt="Photo">
+                                        <div>
+                                            <p class="mb-0"><span
+                                                    class="text-[#008068] text-lg font-semibold">{{$indo->name}}</span>
+                                                <br>
+                                                {{$indo->country}}
+                                            </p>
+                                            <p class="text-sm text-gray-500">{{$indo->description}}</p>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="{{$loop->index}}" tabindex="-1" aria-labelledby="ModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="ModalLabel">Faculty Detail
-                                                </h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-0 px-3">
-                                                    <div class="row">
-                                                        <div class="col-lg-8">
-                                                            <div class="d-flex align-items-center gap-3">
-                                                                <img class="rounded-circle shadow img-thumbnail"
-                                                                    style="width: 80px"
-                                                                    src="{{$indo->image ? asset('storage/' . $indo->image) : "
-                                                                    assets/images/speakers.jpg"}}"
-                                                                    alt="{{$indo->name}}">
-                                                                <div>
-                                                                    <p class="black mb-0"><span
-                                                                            class="fw-bold">{{$indo->name}}</span> <br>
-                                                                        {{$indo->country}}</p>
-                                                                    <small>{{$indo->description}}</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-lg-5 mt-3 mb-2">
-                                                        <div class="col-lg-12">
-                                                            <p class="fw-bold">Session</p>
-                                                            @foreach ($indo->schedules as $schedule)
-                                                            <div class="d-flex gap-5 text-success fw-bold">
-                                                                <p>{{
-                                                                    $schedule->sesi && $schedule->sesi->date ?
-                                                                    \Carbon\Carbon::parse($schedule->sesi->date)->format('d
-                                                                    F Y') : 'Tanggal tidak tersedia'
-                                                                    }}</p>
-                                                                <p>{{$schedule->time_speaker}}</p>
-                                                                <p>{{$schedule->sesi && $schedule->sesi->room ? $schedule->sesi->room : 'room not available'}}</p>
-                                                            </div>
-                                                            <p class="fw-bold black mb-1">{{$schedule->sesi && $schedule->sesi->title_ses ? $schedule->sesi->title_ses : 'title not available'}}
-                                                            </p>
-                                                            <p class="black mb-5 border-dashed-bottom-2 pb-3">
-                                                                {{$schedule->topic_title}}</p>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn1 "
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                    <p class="font-medium text-lg text-gray-700">Session</p>
+                                    <div class="border-t pt-5">
+                                        @foreach ($indo->schedules as $schedule)
+                                        <div class="flex flex-wrap gap-5 text-green-600">
+                                            <p>{{\Carbon\Carbon::parse($schedule->sesi->date)->format('d
+                                                F Y')}}</p>
+                                            <p>{{$schedule->time_speaker}}</p>
+                                            <p>{{$schedule->sesi->room}}</p>
                                         </div>
+                                        <p class="mb-1">{{$schedule->sesi->title_ses}}
+                                        </p>
+                                        <p class="text-gray-500 mb-5 border-b border-dashed border-gray-800 pb-3">
+                                            {{$schedule->topic_title}}
+                                        </p>
+                                        @endforeach
+                                    </div>
+                                    <div class="modal-action">
+                                        <form method="dialog">
+                                            <!-- if there is a button, it will close the modal -->
+                                            <button class="btn">Close</button>
+                                        </form>
                                     </div>
                                 </div>
-                                @endforeach
-                            </div>
+                            </dialog>
+                            @endforeach
                         </div>
+                        <div class="mt-5 border-t border-dashed pt-3">
+                            {{ $indofaculties->links() }}
+                        </div>
+                        <p class="text-xs italic mt-5">*within confirmation</p>
                     </div>
 
-                    <div class="tab-pane fade" id="foreign" role="tabpanel" aria-labelledby="foreign-tab" tabindex="0">
-
-                        <div class="sepaker-list">
-                            <div class="row">
-                                <small class="text-danger fst-italic mb-3">*within Confirmation</small>
-                                @foreach ($foreignfaculties as $foreign)
-                                <div class="col-lg-3 col-md-6 p-2 text-center text-white">
-                                    <div class="speaker-box  position-relative overflow-hidden text-white">
-                                        <img class="speaker-image rounded w-100"
-                                            src="{{$foreign->image ? asset('storage/' . $foreign->image) : "
-                                            assets/images/speakers.jpg"}}" alt="{{$foreign->name}}">
-                                        <div class="box-content position-absolute bottom-0 z-1 pt-5">
-                                            <h6 class="speaker-title d-block faculty mb-0" data-bs-toggle="modal"
-                                                data-bs-target="#forein-{{$loop->index}}">{{$foreign->name}}
-                                            </h6>
-                                            <span class="pb-2 speaker-post d-block">{{$foreign->country}}</span>
-                                            <small data-bs-toggle="modal" data-bs-target="#forein-{{$loop->index}}"
-                                                class="rounded pb-2 ps-0 d-block social-link faculty me-1">Read
-                                                More..</small>
-
-                                        </div>
-                                    </div>
+                    <input type="radio" name="my_tabs_2"
+                        class="tab uppercase tracking-wider  text-lg text-accent hover:text-[#008068]"
+                        aria-label="Foreign faculties" />
+                    <div class="tab-content  p-5 rounded-lg">
+                        {{-- @dd($indofaculties) --}}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                            @foreach ($foreignfaculties as $foreign)
+                            <div class="card bg-base-100 shadow-sm p-0 hover:shadow-md hover:scale-105 transition-all duration-200">
+                                <figure onclick="my_modal_f{{$loop->index}}.showModal()" class="relative hover:cursor-pointer ">
+                                    <img src="{{$foreign->image ? asset('storage/' . $foreign->image) : "
+                                        assets/images/speaker.png"}}" alt="{{$foreign->name}}"
+                                        class="w-full h-full object-cover rounded">
+                                    
+                                </figure>
+                                <div class="card-body text-center">
+                                    <h2 onclick="my_modal_f{{$loop->index}}.showModal()"
+                                        class="text-xl font-semibold text-[#008068] hover:cursor-pointer hover:text-accent">
+                                        {{$foreign->name}}
+                                    </h2>
+                                    <p>{{$foreign->country}}</p>
                                 </div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="forein-{{$loop->index}}" tabindex="-1"
-                                    aria-labelledby="ModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="ModalLabel">Faculty Detail
-                                                </h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-0 p-3">
-                                                    <div class="row">
-                                                        <div class="col-lg-8">
-                                                            <div class="d-flex align-items-center gap-3">
-                                                                <img class="rounded-circle shadow img-thumbnail"
-                                                                    style="width: 80px"
-                                                                    src="{{$foreign->image ? asset('storage/' . $foreign->image) : "
-                                                                    assets/images/speakers.jpg"}}"
-                                                                    alt="{{$foreign->name}}">
-                                                                <div>
-                                                                    <p class="black mb-0"><span
-                                                                            class="fw-bold">{{$foreign->name}}</span>
-                                                                        <br>
-                                                                        {{$foreign->country}}
-                                                                    </p>
-                                                                    <small>{{$foreign->description}}</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-lg-5 mt-3 mb-2">
-                                                        <div class="col-lg-12">
-                                                            <p class="fw-bold">Session</p>
-                                                            @foreach ($foreign->schedules as $schedule)
-                                                            <div class="d-flex gap-5 text-success fw-bold">
-                                                                <p>{{
-                                                                    $schedule->sesi && $schedule->sesi->date ?
-                                                                    \Carbon\Carbon::parse($schedule->sesi->date)->format('d
-                                                                    F Y') : 'Tanggal tidak tersedia'
-                                                                    }}</p>
-                                                                <p>{{$schedule->time_speaker}}</p>
-                                                                <p>{{$schedule->sesi && $schedule->sesi->room ? $schedule->sesi->room : 'room not available'}}</p>
-                                                            </div>
-                                                            <p class="fw-bold black mb-1">{{$schedule->sesi && $schedule->sesi->title_ses ? $schedule->sesi->title_ses : 'title not available'}}
-                                                            </p>
-                                                            <p class="black mb-5 border-dashed-bottom-2 pb-3">
-                                                                {{$schedule->topic_title}}</p>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn1 "
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
                             </div>
-                        </div>
 
+                            <dialog id="my_modal_f{{$loop->index}}" class="modal">
+                                <div class="modal-box w-10/12 max-w-5xl">
+                                    <form method="dialog">
+                                        <button
+                                            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                    </form>
+                                    <div class="flex items-center gap-3 pb-3">
+                                        <img class="rounded-full bg-accent/20 shadow w-20 object-cover"
+                                            src="{{$foreign->image ? asset('storage/' . $foreign->image) : "
+                                            assets/images/speaker.png"}}" alt="{{$foreign->name}}">
+                                        <div>
+                                            <p class="mb-0"><span
+                                                    class="text-[#008068] text-lg font-semibold">{{$foreign->name}}</span>
+                                                <br>
+                                                {{$foreign->country}}
+                                            </p>
+                                            <p class="text-sm text-gray-500">{{$foreign->description}}</p>
+                                        </div>
+                                    </div>
+                                    <p class="font-medium text-lg text-gray-700">Session</p>
+                                    <div class="border-t pt-5">
+                                        @foreach ($foreign->schedules as $schedule)
+                                        <div class="flex flex-wrap gap-5 text-green-600">
+                                            <p>{{\Carbon\Carbon::parse($schedule->sesi->date)->format('d
+                                                F Y')}}</p>
+                                            <p>{{$schedule->time_speaker}}</p>
+                                            <p>{{$schedule->sesi->room}}</p>
+                                        </div>
+                                        <p class="mb-1">{{$schedule->sesi->title_ses}}
+                                        </p>
+                                        <p class="text-gray-500 mb-5 border-b border-dashed border-gray-800 pb-3">
+                                            {{$schedule->topic_title}}
+                                        </p>
+                                        @endforeach
+                                    </div>
+                                    <div class="modal-action">
+                                        <form method="dialog">
+                                            <!-- if there is a button, it will close the modal -->
+                                            <button class="btn">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
+                            @endforeach
+                        </div>
+                        <div class="mt-5 border-t border-dashed pt-3">
+                            {{ $foreignfaculties->links() }}
+                        </div>
+                        <p class="text-xs italic mt-5">*within confirmation</p>
                     </div>
 
                 </div>
             </div>
+
         </div>
     </section>
 </div>

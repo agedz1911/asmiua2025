@@ -2,42 +2,87 @@
     <section class="breadcrumbs relative pb-0">
         {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
         <div class="py-16 lg:py-28 text-center relative">
-            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Welcome Message</h2>
         </div>
     </section>
 
-    <section class="feature text-white position-relative z-0 start-0">
-        <div class="overlay z-n1">
-        </div>
-        <div class="container">
-            <div class="feature-inner">
-                <div class="general-ques mt-5">
-                    @foreach ($messages as $message)
-                    <div class="row border-bottom border-white border-opacity-25" id="{{$message->id}}">
-                        <div class="col-lg-6 order-2 order-lg-1 p-2">
-                            <div class="general-ques-left text-white">
-                                <div class="general-ques-image text-center">
-                                    <img src="{{$message->image ? asset('storage/' . $message->image) : "assets/images/team/4.png"}} " alt="faq-general-image" class="w-50"><br>
+    <section class="bg-gradient-to-r from-[#008068] via-[#046f5d] to-[#008068] relative z-0 py-28">
+        <div class="mb-6 px-4">
+            @foreach ($messages as $welcomeMessage)
+            @if ($loop->even)
+            <div class="card shadow-lg bg-transparent border border-white border-opacity-25 w-full mb-5">
+                <div class="card-body">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 justify-items-stretch">
+                        <div class="order-2 lg:order-1 p-2">
+                            <div
+                                class="w-full justify-center lg:flex-row flex flex-col items-center lg:items-end gap-2">
+                                <div class="avatar">
+                                    <img src="{{$welcomeMessage->image ? asset('storage/' . $welcomeMessage->image) : "
+                                        assets/images/speaker.png"}}" alt="{{$welcomeMessage->name}}"
+                                        class="w-full max-w-52 shadow-lg rounded-lg ">
                                 </div>
-                                <div class="speaker-statement-box p-4 rounded bg-blue w-lg-80 mb-mi">
-                                    <div class="speaker-statement ps-4 border-start border-white border-7">
-                                        <p><small>" {{$message->title}} "</small></p>
-                                        <h6 class="text-white">{{$message->name}}</h6>
+                                <div class="p-4 rounded-lg bg-accent w-full max-w-sm">
+                                    <div class="ps-4 border-s border-white border-spacing-7">
+                                        <p class="text-white text-xs italic">" {{$welcomeMessage->title}}
+                                            "</p>
+                                        <h6 class="font-semibold text-white">{{$welcomeMessage->name}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="order-1 lg:order-2 p-2 ">
+                            <div class="flex flex-col ">
+                                <div class="pr-2">
+                                    <div class="pb-4  text-justify flex flex-col gap-2 text-gray-300">
+                                        {!! str($welcomeMessage->description)->markdown()->sanitizeHtml() !!}
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 order-1 order-lg-2 p-4">
-                            <div class="general-ques-right">
-                                <div class="section-title pb-4 text-center text-lg-start">
-                                    {!! str($message->description)->markdown()->sanitizeHtml() !!}
-                                </div>                                
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="card shadow-lg bg-transparent border border-white border-opacity-25 w-full mb-5">
+                <div class="card-body">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 justify-items-stretch">
+                        <div class="order-2 lg:order-2 p-2">
+                            <div
+                                class="w-full justify-center lg:flex-row flex flex-col items-center lg:items-end gap-2">
+                                <div class="avatar">
+                                    <img src="{{$welcomeMessage->image ? asset('storage/' . $welcomeMessage->image) : "
+                                        assets/images/speaker.png"}}" alt="{{$welcomeMessage->name}}"
+                                        class="w-full max-w-52 shadow-lg rounded-lg ">
+                                </div>
+                                <div class="p-4 rounded-lg bg-accent w-full max-w-sm">
+                                    <div class="ps-4 border-s border-white border-spacing-7">
+                                        <p class="text-white text-xs italic">" {{$welcomeMessage->title}}
+                                            "</p>
+                                        <h6 class="font-semibold text-white">{{$welcomeMessage->name}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="order-1 lg:order-1 p-2 ">
+                            <div class="flex flex-col ">
+                                <div class="pr-2">
+                                    <div class="pb-4  text-justify flex flex-col gap-2 text-gray-300">
+                                        {!! str($welcomeMessage->description)->markdown()->sanitizeHtml() !!}
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
+            @endif
+            @endforeach
         </div>
     </section>
+
+    
 </div>

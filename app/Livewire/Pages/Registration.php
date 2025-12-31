@@ -20,17 +20,16 @@ class Registration extends Component
 
     public function render()
     {
-        $regs = ModelsRegistration::where('is_active', true)->get();
-        $regLocals = $regs->where('wilayah_reg', 'indonesia')->where('category_reg', 'symposium');
-        $regForeigns = $regs->where('wilayah_reg', 'foreign');
-        $workshops = $regs->where('category_reg', 'workshop');
-        $masterclass = $regs->where('category_reg', 'master class');
+        $regLocals = ModelsRegistration::where('wilayah_reg', 'indonesia')->where('is_active', true)->get();
+        $regForeigns = ModelsRegistration::where('wilayah_reg', 'foreign')->where('is_active', true)->get();
+        $uniqueLocals = $regLocals->pluck('category_reg')->unique();
+        $uniqueForeigns = $regForeigns->pluck('category_reg')->unique();
         return view('livewire.pages.registration', [
             'regInfos' => $this->regInfos, 
             'regLocals' => $regLocals, 
             'regForeigns' => $regForeigns,
-            'workshops' => $workshops,
-            'masterclass' => $masterclass
+            'uniqueLocals' => $uniqueLocals,
+            'uniqueForeigns' => $uniqueForeigns,
         ]);
     }
 }

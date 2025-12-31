@@ -2,198 +2,254 @@
     <section class="breadcrumbs relative pb-0">
         {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
         <div class="py-16 lg:py-28 text-center relative">
-            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Registration</h2>
         </div>
     </section>
 
-    <section class="price bg-lightgrey">
-        <div class="container">
-            <div class="price-inner">
-                <div class="price-title mb-7 w-lg-60 m-auto text-center">
-                    <h2 class="mb-1">Registration <span class="kuning">Symposium</span></h2>
-                </div>
-                <div class="row">
-                    <div class="price-options g-2 pb-6">
-                        <span class="badge text-bg-warning px-3 rounded mb-3">Indonesian Participants</span>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead class="table-success text-center">
-                                    <tr>
-                                        <th scope="col" class="align-top">Category</th>
-                                        <th scope="col" class="align-top">Early Bird Registration <br> up to 10 June
-                                            2025
-                                        </th>
-                                        <th scope="col" class="align-top">Regular Registration <br> After 10 June 2025
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($regLocals as $regLocal)
-                                    <tr>
-                                        <th scope="row">{{$regLocal->title}}</th>
-                                        <td class="text-center">IDR {{number_format($regLocal->early_bird_reg, 0, ',',
-                                            '.')}}</td>
-                                        <td class="text-center">IDR {{number_format($regLocal->normal_reg, 0, ',',
-                                            '.')}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="relative">
-                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
-                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
-                        </div>
-                    </div>
-                    <div class="price-options g-2 pb-6">
-                        <span class="badge text-bg-warning px-3 rounded mb-3">Masterclass</span>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead class="table-success text-center">
-                                    <tr>
-                                        <th scope="col" class="align-top">Category</th>
-                                        <th scope="col" class="align-top">Date
-                                        </th>
-                                        <th scope="col" class="align-top">Registration Fee</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($masterclass as $ms)
-                                    <tr>
-                                        <th scope="row">{{$ms->title}}</th>
-                                        <td class="text-center">
-                                            {{\Carbon\Carbon::parse($ms->date_early_bird)->format('l, M jS, Y')}}</td>
-                                        <td class="text-center">IDR
-                                            @if(is_null($ms->early_bird_reg))
-                                            TBA
-                                            @elseif($ms->early_bird_reg == 0)
-                                            Free
-                                            @else
-                                            {{ number_format($ms->early_bird_reg, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="relative">
-                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
-                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
-                        </div>
-                    </div>
-                    <div class="price-options g-2 pb-6">
-                        <span class="badge text-bg-warning px-3 rounded mb-3">Workshops</span>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead class="table-success text-center">
-                                    <tr>
-                                        <th scope="col" class="align-top">Category</th>
-                                        <th scope="col" class="align-top">Date
-                                        </th>
-                                        <th scope="col" class="align-top">Registration Fee</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($workshops as $ws)
-                                    <tr>
-                                        <th scope="row">{{$ws->title}}</th>
-                                        <td class="text-center">
-                                            {{\Carbon\Carbon::parse($ws->date_early_bird)->format('l, M jS, Y')}}</td>
-                                        <td class="text-center">IDR
-                                            @if(is_null($ws->early_bird_reg))
-                                            TBA
-                                            @elseif($ws->early_bird_reg == 0)
-                                            Free
-                                            @else
-                                            {{ number_format($ws->early_bird_reg, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="relative">
-                            <a href="https://expo.virconex-id.com/registration/asmiua2025/"
-                                class="btn mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="price-options g-2 pb-6">
-                    <span class="badge text-bg-primary px-3 rounded mb-3">Foreign Participants</span>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead class="table-secondary text-center">
+    <section class="px-5 md:px-10 pt-0 pb-10 md:py-20 bg-competition">
+        <!-- name of each tab group should be unique -->
+        <div class="tabs tabs-border justify-evenly">
+            <input type="radio" name="my_tabs_2" class="tab text-lg uppercase text-[#008068]"
+                aria-label="Indonesian Participant" checked="checked" />
+            <div class="tab-content">
+                <div class="pb-6 text-gray-500">
+                    {{-- <span class="bg-amber-100 mt-5 text-amber-800 px-3 py-2 text-sm rounded-xl ">Indonesian
+                        Participants</span> --}}
+                    @foreach ($uniqueLocals as $category)
+                    @if ($category == 'symposium')
+                    <h2 class="uppercase font-semibold text-[#008068] mb-2 mt-5">{{$category}}</h2>
+                    <div class="relative overflow-x-auto shadow sm:rounded-lg ">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                            <thead class=" text-white uppercase text-center bg-[#008068] ">
                                 <tr>
-                                    <th scope="col" class="align-top">Category</th>
-                                    <th scope="col" class="align-top">Early Bird Registration <br> up to 10 June 2025
+                                    <th scope="col" class="px-6 py-3">
+                                        Category
                                     </th>
-                                    <th scope="col" class="align-top">Regular Registration <br> After 10 June 2025</th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Early Bird Registration <br>
+                                        up to 31 December 2025
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Late / Onsite Registration <br>
+                                        After 31 December 2025
+                                    </th>
+                                    {{-- <th scope="col" class="px-6 py-3">
+                                        Onsite Registration
+                                    </th> --}}
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($regLocals as $regLocal)
+                                @if ($regLocal->category_reg == $category)
+                                <tr class="bg-white border-b  border-gray-200 hover:bg-green-50 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {{$regLocal->title}}
+                                    </th>
+                                    <td class="px-6 py-4 text-center">
+                                        IDR {{$regLocal->early_bird_reg != 0 ? number_format($regLocal->early_bird_reg,
+                                        0, ',', '.') : 'Free'}}
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        IDR {{$regLocal->normal_reg != 0 ? number_format($regLocal->normal_reg, 0, ',',
+                                        '.') : 'Free'}}
+                                    </td>
+                                    {{-- <td class="px-6 py-4 text-center">
+                                        IDR {{$regLocal->onsite_reg != 0 ? number_format($regLocal->onsite_reg, 0, ',',
+                                        '.'): 'Free'}}
+                                    </td> --}}
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="relative mt-2">
+                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                                class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
+                                    class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        </div>
+                    </div>
+                    @elseif ($category == 'workshop')
+                    <h2 class="uppercase font-semibold text-[#008068] mb-2 mt-5">{{$category}}</h2>
+                    <div class="relative overflow-x-auto shadow sm:rounded-lg ">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                            <thead class=" text-white uppercase text-center bg-[#008068] ">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Category
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Early Bird Registration <br>
+                                        up to 31 December 2025
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Late / Onsite Registration <br>
+                                        After 31 December 2025
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($regLocals as $regLocal)
+                                @if ($regLocal->category_reg == $category)
+                                <tr class="bg-white border-b  border-gray-200 hover:bg-green-50 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {{$regLocal->title}}
+                                    </th>
+                                    <td class="px-6 py-4 text-center">
+                                        {{$regLocal->early_bird_reg != 0 ? 'IDR ' .
+                                        number_format($regLocal->early_bird_reg, 0, ',', '.') : ''}}
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        {{$regLocal->early_bird_reg != 0 ? 'IDR ' .
+                                        number_format($regLocal->normal_reg, 0, ',', '.') : ''}}
+                                    </td>
+
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="relative mt-2">
+                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                                class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
+                                    class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        </div>
+                    </div>
+                    @else
+                    <h2 class="uppercase font-semibold text-[#008068] mb-2 mt-5">{{$category}}</h2>
+                    <div class="relative overflow-x-auto shadow sm:rounded-lg ">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                            <thead class=" text-white uppercase text-center bg-[#008068] ">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Category
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Other Surgeons / General Practitioners (GP)
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Nurse / Medical Students
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($regLocals as $regLocal)
+                                @if ($regLocal->category_reg == $category)
+                                <tr class="bg-white border-b  border-gray-200 hover:bg-green-50 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {{$regLocal->title}}
+                                    </th>
+                                    <td class="px-6 py-4 text-center">
+                                        {{$regLocal->early_bird_reg != 0 ? 'IDR ' . number_format($regLocal->early_bird_reg,
+                                        0, ',', '.') : ''}}
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        {{$regLocal->normal_reg != 0 ? 'IDR' . number_format($regLocal->normal_reg, 0, ',',
+                                        '.') : ''}}
+                                    </td>
+
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="relative mt-2">
+                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                                class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
+                                    class="fa-solid fa-list mx-3"></i>Register Now!</a>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+
+                </div>
+            </div>
+
+            <input type="radio" name="my_tabs_2" class="tab uppercase text-lg text-[#008068] "
+                aria-label="International Participant" />
+            <div class="tab-content">
+                <div class="pb-6 text-gray-500">
+                    {{-- <span class="bg-amber-100 text-amber-800 px-3 py-2 text-sm rounded-xl mb-3">Foreign
+                        Participants</span> --}}
+                    @foreach ($uniqueForeigns as $category)
+                    <h2 class="uppercase font-semibold text-[#008068] mb-2 mt-5">{{$category}}</h2>
+                    <div class="relative overflow-x-auto shadow sm:rounded-lg">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                            <thead class=" text-white uppercase text-center bg-[#78c9bb] ">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Category
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Early Bird Registration <br>
+                                        up to 31 December 2025
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Late / Onsite Registration <br>
+                                        After 31 December 2025
+                                    </th>
+                                    {{-- <th scope="col" class="px-6 py-3">
+                                        Onsite Registration
+                                    </th> --}}
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($regForeigns as $regForeign)
-                                <tr>
-                                    <th scope="row">{{$regForeign->title}}</th>
-                                    <td class="text-center">USD {{$regForeign->early_bird_reg}}</td>
-                                    <td class="text-center">USD {{$regForeign->normal_reg}}</td>
+                                @if ($regForeign->category_reg == $category)
+                                <tr class="bg-white border-b  border-gray-200 hover:bg-green-50 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {{$regForeign->title}}
+                                    </th>
+                                    <td class="px-6 py-4 text-center">
+                                        USD {{$regForeign->early_bird_reg != 0 ? $regForeign->early_bird_reg :
+                                        'Free'}}
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        USD {{$regForeign->normal_reg != 0 ? $regForeign->normal_reg : 'Free'}}
+                                    </td>
+                                    {{-- <td class="px-6 py-4 text-center">
+                                        USD {{$regForeign->onsite_reg != 0 ? $regForeign->onsite_reg : 'Free'}}
+                                    </td> --}}
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
-                    <div class="relative">
-                        <a href="https://expo.virconex-id.com/registration/asmiua2025/"
-                            class="btn btn1 mb-3 float-end"><i class="fa-solid fa-list mx-3"></i>Register Now!</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="ticket2 position-relative">
-        <div class="container">
-            <div class="ticket-inner  text-center position-relative">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ticket-left text-lg-start pb-6">
-                            <div class="ticket-title">
-                                <h2 class="mb-2">Registration
-                                    <span class="kuning d-inline-block">information</span>
-                                </h2>
-                            </div>
-                            <div class="ticket-info">
-                                <div class="faq-accordion p-4 mb-6 shadow rounded">
-                                    <div class="accordion accordion-faq" id="accordionExample">
-                                        @foreach ($regInfos as $regInfo)
-                                        <div class="accordion-item ">
-                                            <p class="accordion-header p-4">
-                                                <button
-                                                    class="accordion-button fw-semibold p-0 text-uppercase collapsed"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#{{$regInfo->id}}" aria-expanded="false"
-                                                    aria-controls="flush-{{$regInfo->id}}">
-                                                    {{ $regInfo->title }}
-                                                </button>
-                                            </p>
-                                            <div id="{{$regInfo->id}}" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionExample">
-                                                <div class="accordion-body bg-lightgrey p-6">
-                                                    {!!str($regInfo->description)->markdown()->sanitizeHtml() !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="relative mt-2">
+                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                                class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
+                                    class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="px-5 md:px-10 py-10 md:py-20 bg-competition border-t border-dashed border-gray-400">
+        <div class=" mt-10">
+            <div class="text-center lg:text-start">
+                <h2 class="mb-2 uppercase text-3xl font-semibold">Registration
+                    <span class="text-[#008068]">information</span>
+                </h2>
+            </div>
+
+            <div>
+                @foreach ($regInfos as $regInfo)
+                <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+                    <input type="radio" name="my-accordion-2" />
+                    <div class="collapse-title font-semibold">{{ $regInfo->title }}</div>
+                    <div class="collapse-content text-sm text-gray-500">
+                        {!!str($regInfo->description)->markdown()->sanitizeHtml() !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    
 </div>

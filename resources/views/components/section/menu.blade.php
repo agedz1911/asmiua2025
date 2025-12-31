@@ -6,7 +6,7 @@
     </li>
     <div class="dropdown dropdown-hover">
         <div tabindex="0"
-            class="{{ request()->is('organizing-committee') || request()->is('faculties') ? 'text-accent' : 'text-green-950' }} hover:cursor-pointer hover:text-[#72C6B7]">
+            class="{{ request()->is('organizing-committee') || request()->is('faculties') || request()->is('welcome-message') ? 'text-accent' : 'text-green-950' }} hover:cursor-pointer hover:text-[#72C6B7]">
             Congress Information <i class="fa-solid fa-angle-down"></i></div>
         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box gap-2 w-60 p-2 shadow-sm">
             <li>
@@ -19,7 +19,7 @@
                     Committee <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
-                <a href="#" wire:navigate
+                <a href="/faculties" wire:navigate
                     class="{{ request()->is('faculties') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7] ">Faculties
                     <i class="fa-solid fa-angle-right"></i></a>
             </li>
@@ -31,11 +31,7 @@
             class="{{ request()->is('program-at-glance') || request()->is('topics') || request()->is('scientific-schedule') ? 'text-accent' : 'text-green-950' }} hover:cursor-pointer hover:text-[#72C6B7]">
             Scientific Program <i class="fa-solid fa-angle-down"></i></div>
         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box gap-2 w-60 p-2 shadow-sm">
-            <li>
-                <a href="/topics" wire:navigate
-                    class="{{ request()->is('topics') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
-                    Topics <i class="fa-solid fa-angle-right"></i></a>
-            </li>
+            
             <li>
                 <a href="#" wire:navigate
                     class="{{ request()->is('program-at-glance') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Program
@@ -45,6 +41,11 @@
                 <a href="#" wire:navigate
                     class="{{ request()->is('scientific-schedule') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Scientific
                     Schedule <i class="fa-solid fa-angle-right"></i></a>
+            </li>
+            <li>
+                <a href="#" wire:navigate
+                    class="{{ request()->is('topics') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
+                    Program Book <i class="fa-solid fa-angle-right"></i></a>
             </li>
     </div>
 
@@ -66,17 +67,17 @@
             Free Paper <i class="fa-solid fa-angle-down"></i></div>
         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box gap-2 w-60 p-2 shadow-sm">
             <li>
-                <a href="#" wire:navigate
-                    class="{{ request()->is('visiting') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
-                    Free Paper Submission <i class="fa-solid fa-angle-right"></i></a>
+                <a href="/presentation-schedule" wire:navigate
+                    class="{{ request()->is('presentation-schedule') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
+                    Free Paper Schedule <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
                 <a href="#"
-                    class="{{ request()->is('presentation-schedule') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Free Paper Presentation Submission <i class="fa-solid fa-angle-right"></i></a>
+                    class="justify-between hover:text-[#72C6B7]">Free Paper Presentation Submission <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
                 <a href="/submission" wire:navigate
-                    class="{{ request()->is('submission') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Submission<i class="fa-solid fa-angle-right"></i></a>
+                    class="{{ request()->is('submission') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Abstract Submission<i class="fa-solid fa-angle-right"></i></a>
             </li>
     </div>
     <div class="dropdown dropdown-hover">
@@ -87,7 +88,7 @@
             <li>
                 <a href="/visiting" wire:navigate
                     class="{{ request()->is('visiting') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
-                    Bali <i class="fa-solid fa-angle-right"></i></a>
+                    Bandung <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
                 <a href="/visiting#venue"

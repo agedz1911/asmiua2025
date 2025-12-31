@@ -6,7 +6,7 @@
         </div>
     </section>
 
-    <section class="pb-24 pt-10 px-5 md:px-10">
+    <section class="px-5 md:px-10 pt-0 pb-10 md:py-20">
         @foreach ($sortedGroupedSponsors as $category => $sponsors)
         <div class="border-b-2 border-dashed py-8 border-accent/40">
             <div class="">

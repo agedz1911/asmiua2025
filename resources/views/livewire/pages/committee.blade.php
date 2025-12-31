@@ -2,37 +2,34 @@
     <section class="breadcrumbs relative pb-0">
         {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
         <div class="py-16 lg:py-28 text-center relative">
-            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Organizing Committee</h2>
         </div>
     </section>
 
-    <section class="speakers">
-        <div class="container">
-            <div class="speaker-inner">
-                <div class="sepaker-list">
-                    <div class="row justify-content-center text-center">
-                        @foreach ($uniqueCategories as $category)
-                        <h4 class="mb-1 mt-3"><span class="badge bg-kuning px-6 py-3 rounded">{{$category}}</span></h4>
-                        @foreach ($committees as $committee)
-                        @if ($committee->category == $category)
-                        <div class="col-lg-3 col-md-4 col-12 p-2 ">
-                            <div class="speaker-box  position-relative overflow-hidden text-white">
-                                <img class="speaker-image rounded img-fluid"
-                                    src="{{$committee->image ? asset('storage/' . $committee->image) : "
-                                    assets/images/speakers.jpg"}}" alt="{{$committee->name}}">
-                                <div class="card shadow-sm border-top-0 mt-1">
-                                    <h6><a class="text-blue" href="javascript:void(0)">{{$committee->name}}</a>
-                                    </h6>
-                                    <span class="speaker-post d-block pb-2">{{$committee->title}}</span>
-                                </div>
-                            </div>
-                        </div>
+    <section class="mx-auto w-full bg-competition px-5 md:px-10 pt-0 pb-10 md:py-20">
+        @foreach ($uniqueCategories as $category)
+        <h2 class="text-center text-xl lg:text-2xl font-bold mb-5 uppercase text-[#008068]">{{$category}}</h2>
+        <div class="flex flex-wrap gap-4 justify-center mb-12">
+            @foreach ($committees as $committee)
+            @if ($committee->category == $category)
+            <div class="card w-full max-w-xs bg-base-100 card-md shadow-sm">
+                <figure>
+                    <img src="{{$committee->image ? asset('storage/' . $committee->image) : " assets/images/speaker.png"}}"
+                        alt="{{$committee->name}}" alt="{{$committee->name}}" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">{{ $committee->name }}</h2>
+                    <p>@if ($committee->title != null)
+                        <br>
+                        <span class="font-semibold ml-3">({{ $committee->title }})</span>
                         @endif
-                        @endforeach
-                        @endforeach
-                    </div>
+                    </p>
+
                 </div>
             </div>
+            @endif
+            @endforeach
         </div>
+        @endforeach
     </section>
 </div>

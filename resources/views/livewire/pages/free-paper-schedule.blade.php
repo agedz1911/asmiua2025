@@ -2,185 +2,134 @@
     <section class="breadcrumbs relative pb-0">
         {{-- <div class="absolute inset-0 bg-gradient-to-b from-[#008068]/80 to-[#78c9bb]/10"></div> --}}
         <div class="py-16 lg:py-28 text-center relative">
-            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Sponsors</h2>
+            <h2 class="text-accent uppercase text-2xl font-semibold tracking-wide lg:text-4xl">Free Paper Schedule</h2>
         </div>
     </section>
 
-    <section class="faq-popular-ques">
-        <div class="container">
-            <div class="popular-ques">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="popular-ques-left me-4 m-sm-0">
-                            <div class="section-title pb-4 text-center text-lg-start">
-                                <p class="mb-1 kuning">Free Paper</p>
-                                <h2 class="mb-0">Guideline for Free Paper<span class="kuning"> Presentation</span></h2>
-                            </div>
-                            <div class="faq-accordion p-4 mb-6 bg-white shadow rounded">
-                                <div class="accordion accordion-faq" id="accordionExample">
-                                    @foreach ($presentationGuides as $item)
-                                    <div class="accordion-item ">
-                                        <p class="accordion-header p-4">
-                                            <button class="accordion-button fw-semibold p-0 text-uppercase collapsed"
-                                                type="button" data-bs-toggle="collapse" data-bs-target="#{{$item->id}}"
-                                                aria-expanded="false" aria-controls="flush-{{$item->id}}">
-                                                {{$item->title}}
-                                            </button>
-                                        </p>
-                                        <div id="{{$item->id}}" class="accordion-collapse collapse"
-                                            data-bs-parent="#accordionExample">
-                                            <div class="accordion-body bg-lightgrey p-6">
-                                                {!! str($item->description)->markdown()->sanitizeHtml() !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section class="px-5 md:px-10 pt-0 pb-10 md:py-20">
+        <div class="mt-10">
+            <div class="text-center lg:text-start mb-5 md:mb-10">
+                <p class="mb-1 kuning">Free Paper</p>
+                <h2 class="mb-2 uppercase text-3xl font-semibold">Guideline for Free Paper<span class="text-[#008068]"> Presentation</span>
+                </h2>
+            </div>
+            @foreach ($presentationGuides as $item)
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">{{ $item->title }}</div>
+                <div class="collapse-content text-sm text-gray-500">
+                    {!! str($item->description)->markdown()->sanitizeHtml() !!}
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
-    <section class="faq-general-ques pb-10 bg-lightgrey">
-        <div class="container">
-            <div class="general-ques">
-                <div class="row">
-                    <div class="col-lg-12 p-lg-2 p-0">
-                        <div class="general-ques-right mx-5">
-                            <div class="section-title pb-4 text-center text-lg-start">
-                                <p class="mb-1 kuning">Free Paper</p>
-                                <h2 class="mb-2">Free Paper <span class="kuning">Schedule</span></h2>
-                            </div>
-                            <form>
-                                <div class="row mb-3">
-                                    <div class="col-lg-5 offset-lg-7 col-12">
-                                        <div class="d-flex justify-content-between align-items-center p-2">
-                                            <div class="dropdown">
-                                                <a class="fa fa-filter btn1 {{ $selectedCategory ? 'text-primary' : '' }}"
-                                                    href="#" role="button" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                </a>
-                                                <ul class="dropdown-menu ">
-                                                    <li>
-                                                        <a class="dropdown-item {{ $selectedCategory == '' ? 'text-warning' : '' }}"
-                                                            href="#" wire:click.prevent="resetFilter()">
-                                                            All Categories
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item {{ $selectedCategory == 'Podium Presentation' ? 'text-warning' : '' }}"
-                                                            href="#"
-                                                            wire:click.prevent="filterByCategory('Podium Presentation')">
-                                                            Podium Presentation
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item {{ $selectedCategory == 'Moderated e-Poster' ? 'text-warning' : '' }}"
-                                                            href="#"
-                                                            wire:click.prevent="filterByCategory('Moderated e-Poster')">
-                                                            Moderated e-Poster
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item {{ $selectedCategory == 'Unmoderated Poster' ? 'text-warning' : '' }}"
-                                                            href="#"
-                                                            wire:click.prevent="filterByCategory('Unmoderated Poster')">
-                                                            Unmoderated Poster
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon1">
-                                                    <i class="fa-solid fa-search"></i>
-                                                </span>
-                                                <input type="text" wire:model.live.debounce.500ms='search'
-                                                    class="form-control border"
-                                                    placeholder="Search code, name, title, category"
-                                                    aria-label="Search code, name, title, category"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <section class="px-5 md:px-10 py-10 md:py-20">
+        <div class="text-center lg:text-start mb-5">
+            <p class="mb-1 kuning">Free Paper</p>
+            <h2 class="mb-2 uppercase text-3xl font-semibold">Free Paper<span class="text-[#008068]"> Schedule</span>
+            </h2>
+        </div>
 
-                                <!-- Tampilkan filter yang aktif -->
-                                @if($selectedCategory)
-                                <div class="row mb-2">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-center">
-                                            <span class="me-2">Filtered by:</span>
-                                            <span class="badge bg-info me-2">{{ $selectedCategory }}</span>
-                                            <button type="button" class="btn " wire:click="resetFilter()">
-                                                <i class="fa fa-times"></i> Clear Filter
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-                            </form>
+        <div class="p-5 mb-5">
+            <form>
+                <div class="flex justify-end items-center gap-3">
+                    <div class="dropdown dropdown-hover dropdown-center">
+                        <div tabindex="0" role="button" class="fa fa-filter m-1"></div>
+                        <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li><a href="#" wire:click.prevent="resetFilter()" class="{{ $selectedCategory == '' ? 'text-[#008068]' : '' }}">
+                                    All Categories
+                                </a>
+                            </li>
+                            <li><a href="#" wire:click.prevent="filterByCategory('Podium Presentation')" class="{{ $selectedCategory == 'Podium Presentation' ? 'text-[#008068]' : '' }}">
+                                    Podium Presentation
+                                </a>
+                            </li>
+                            <li><a href="#" wire:click.prevent="filterByCategory('Moderated e-Poster')" class="{{ $selectedCategory == 'Moderated e-Poster' ? 'text-[#008068]' : '' }}">
+                                    Moderated e-Poster
+                                </a>
+                            </li>
+                            <li><a href="#" wire:click.prevent="filterByCategory('Unmoderated Poster')" class="{{ $selectedCategory == 'Unmoderated Poster' ? 'text-[#008068]' : '' }}">
+                                    Unmoderated Poster
+                                </a>
+                            </li>
 
-                            <div class="table-responsive rounded">
-                                <table class="table table-secondary table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Insitution</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">Room</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse ($paperSchedules as $paper)
-                                        <tr>
-                                            <td>{{$paper->code_abstract}}</td>
-                                            <td>{{$paper->name_participant}}</td>
-                                            <td>
-                                                @if ($paper->paperCategory->name == 'Podium Presentation')
-                                                <span class="badge bg-success">{{$paper->paperCategory->name}}</span>
-                                                @elseif ($paper->paperCategory->name == 'Moderated e-Poster')
-                                                <span class="badge bg-primary">{{$paper->paperCategory->name}}</span>
-                                                @elseif ($paper->paperCategory->name == 'Unmoderated Poster')
-                                                <span class="badge bg-warning">{{$paper->paperCategory->name}}</span>
-                                                @endif
-                                            </td>
-                                            <td>{{$paper->title}}</td>
-                                            <td>{{$paper->institution}}</td>
-                                            <td>{{$paper->country}}</td>
-                                            <td>{{ \Carbon\Carbon::parse($paper->date_presenter)->Format('d F Y') }}</td>
-                                            <td>{{$paper->time_presenter}}</td>
-                                            <td>{{$paper->room}}</td>
-                                        </tr>
-                                        @empty
-                                        <tr>
-                                            <td colspan="7" class="text-center">
-                                                <div class="py-4">
-                                                    <i class="fa fa-search fa-2x text-muted mb-2"></i>
-                                                    <p class="text-muted">No papers found matching your criteria.</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                                {{ $paperSchedules->links() }}
-                            </div>
-                        </div>
+                        </ul>
+                    </div>
+                    <div>
+                        <label class="input">
+                            <i class="fa fa-search"></i>
+                            <input wire:model.live.debounce.500ms='search' type="search" class="grow " placeholder="Search code, name, title, category" />
+                        </label>
                     </div>
                 </div>
-            </div>
+                <!-- Tampilkan filter yang aktif -->
+                @if($selectedCategory)
+                <div class="">
+                    <div class="flex items-center">
+                        <span class="me-2">Filtered by:</span>
+                        <span class="badge badge-accent me-2">{{ $selectedCategory }}</span>
+                        <button type="button" class="btn btn-error btn-sm" wire:click="resetFilter()">
+                            <i class="fa fa-times"></i> Clear Filter
+                        </button>
+                    </div>
+                </div>
+                @endif
+            </form>
         </div>
+
+        <div class="overflow-x-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Insitution</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($paperSchedules as $paper)
+                    <tr>
+                        <td>{{$paper->code_abstract}}</td>
+                        <td>{{$paper->name_participant}}</td>
+                        <td>
+                            @if ($paper->paperCategory->name == 'Podium Presentation')
+                            <span class="badge badge-success">{{$paper->paperCategory->name}}</span>
+                            @elseif ($paper->paperCategory->name == 'Moderated e-Poster')
+                            <span class="badge bg-info">{{$paper->paperCategory->name}}</span>
+                            @elseif ($paper->paperCategory->name == 'Unmoderated Poster')
+                            <span class="badge bg-warning">{{$paper->paperCategory->name}}</span>
+                            @endif
+                        </td>
+                        <td>{{$paper->title}}</td>
+                        <td>{{$paper->institution}}</td>
+                        <td>{{$paper->country}}</td>
+                        <td>{{ \Carbon\Carbon::parse($paper->date_presenter)->Format('d F Y') }}</td>
+                        <td>{{$paper->time_presenter}}</td>
+                        <td>{{$paper->room}}</td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div class="py-4">
+                                <i class="fa fa-search fa-2x text-muted mb-2"></i>
+                                <p class="text-muted">No papers found matching your criteria.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+            {{ $paperSchedules->links() }}
+        </div>
+
     </section>
 
     {{-- <livewire:section.free-paper-api /> --}}
