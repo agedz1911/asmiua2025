@@ -33,20 +33,20 @@
         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box gap-2 w-60 p-2 shadow-sm">
             
             <li>
-                <a href="#" wire:navigate
+                <a href="/program-at-glance" wire:navigate
                     class="{{ request()->is('program-at-glance') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Program
                     at Glance <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
-                <a href="#" wire:navigate
+                <a href="/scientific-schedule" wire:navigate
                     class="{{ request()->is('scientific-schedule') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Scientific
                     Schedule <i class="fa-solid fa-angle-right"></i></a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#" wire:navigate
                     class="{{ request()->is('topics') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
                     Program Book <i class="fa-solid fa-angle-right"></i></a>
-            </li>
+            </li> --}}
     </div>
 
 
@@ -90,14 +90,14 @@
                     class="{{ request()->is('visiting') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">
                     Bandung <i class="fa-solid fa-angle-right"></i></a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="/visiting#venue"
                     class="{{ request()->is('visiting#venue') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Conference Venue <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
                 <a href="/social-program" wire:navigate
                     class="{{ request()->is('social-program') ? 'text-accent' : '' }} justify-between hover:text-[#72C6B7]">Social Program <i class="fa-solid fa-angle-right"></i></a>
-            </li>
+            </li> --}}
     </div>
 
 </ul>

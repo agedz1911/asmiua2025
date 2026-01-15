@@ -7,7 +7,8 @@
 
     <title>{{ $title ?? 'ASMIUA' }}</title>
     <meta name="description" content="49 Annual Scientific Meeting of Indonesian Urological Association" />
-    <meta name="keywords" content="urology, urology education, urological, indonesia urologi, iaui, incontinence urology, pan pasific urology, ppcs, PPCS, continence care" />
+    <meta name="keywords"
+        content="urology, urology education, urological, indonesia urologi, iaui, incontinence urology, pan pasific urology, ppcs, PPCS, continence care" />
     <meta name="author" content="AV-PRO" />
 
     <!-- Custom CSS -->
@@ -15,8 +16,10 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
     <!--FontAwesome CSS-->
@@ -26,7 +29,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- theme daisyui -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@$5/themes.css" rel="stylesheet" type="text/css" />
+    {{--
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@$5/themes.css" rel="stylesheet" type="text/css" /> --}}
 </head>
 
 <body>

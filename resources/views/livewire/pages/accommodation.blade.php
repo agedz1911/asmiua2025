@@ -9,7 +9,7 @@
     <section class="px-5 md:px-10 pt-0 pb-10 md:py-20">
         <div class="text-center md:text-start mb-5">
             <h2 class="mb-3 uppercase text-4xl tracking-wide font-bold">Hotel <span class="text-[#008068]">Reservation</span></h2>
-            <p class="text-gray-500">The organizers of the ... congress have secured competitive rates at a variety of
+            <p class="text-gray-500">The organizers of the 49<sup>th</sup> ASMIUA congress have secured competitive rates at a variety of
                 hotels near the Venue to accommodate delegates
                 with different budgets and preferences. Hotel reservations will open and are subject
                 to availability. It is advisable to book your preferred hotel as soon as possible

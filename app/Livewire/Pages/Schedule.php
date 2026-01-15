@@ -14,6 +14,14 @@ class Schedule extends Component
     public $category;
     public $date;
 
+    public function resetDate()
+    {
+        $this->date = null;
+    }
+    public function resetCategory()
+    {
+        $this->category = null;
+    }
 
     public function render()
     {
@@ -40,7 +48,7 @@ class Schedule extends Component
             'atglances' => $atglances,
             'uniqCategories' => $uniqCategories,
             'uniqDates' => $uniqDates,
-            
+
         ]);
     }
 }

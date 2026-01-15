@@ -130,7 +130,7 @@
     <section class="lg:py-16 py-20">
         <div class="w-full pt-5">
             <div class="text-center pb-6 m-auto">
-                <h2 class="mb-1 text-3xl font-bold uppercase">important <span class="text-accent ">Dates</span></h2>
+                <h2 class="mb-1 text-3xl font-semibold uppercase">important <span class="text-accent ">Dates</span></h2>
             </div>
             <livewire:section.important-date />
         </div>

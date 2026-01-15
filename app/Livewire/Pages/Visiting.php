@@ -9,7 +9,7 @@ use Livewire\Component;
 class Visiting extends Component
 {
     public $currentSlide = 1;
-    public $totalSlides = 4;
+    public $totalSlides = 3;
     public $autoplayInterval = 5000;
 
     public function nextSlide()

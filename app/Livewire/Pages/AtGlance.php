@@ -13,16 +13,16 @@ use Livewire\Component;
 class AtGlance extends Component
 {
     public $atglances;
-    public $duaPuluhLima;
-    public $duaPuluhEnam;
-    public $duaPuluhTujuh;
+    public $satu;
+    public $dua;
+    public $tiga;
 
     public function mount()
     {
         $this->atglances = ScheduleSession::all();
-        $this->duaPuluhLima = $this->atglances->where('date', '2025-09-25')->sortBy('no_urut');
-        $this->duaPuluhEnam = $this->atglances->where('date', '2025-09-26')->sortBy('no_urut');
-        $this->duaPuluhTujuh = $this->atglances->where('date', '2025-09-27')->sortBy('no_urut');
+        $this->satu = $this->atglances->where('date', '2025-09-25')->sortBy('no_urut');
+        $this->dua = $this->atglances->where('date', '2025-09-26')->sortBy('no_urut');
+        $this->tiga = $this->atglances->where('date', '2025-09-27')->sortBy('no_urut');
     }
 
     public function render()
