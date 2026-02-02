@@ -21,7 +21,7 @@
                         <h2 class="card-title">Online <span class="text-[#008068]">Submission</span></h2>
                         <p class="text-gray-600 italic">*make sure the file complies with the guidelines.</p>
                         <div class="card-actions justify-end mt-5">
-                            <button class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Submit Abstract</button>
+                            <button wire:click='submitAbstract' class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Submit Abstract</button>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <h2 class="card-title">Online <span class="text-[#008068]">Submission</span></h2>
                         <p class="text-gray-600 italic">*make sure the file complies with the guidelines.</p>
                         <div class="card-actions justify-end mt-5">
-                            <button class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Submit Abstract</button>
+                            <button wire:click='submitAbstract' class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Submit Abstract</button>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <button class="text-start text-warning hover:text-accent hover:underline hover:cursor-pointer" onclick="my_modal_1.showModal()">Read more...</button>
 
                         <div class="card-actions justify-end mt-5">
-                            <button class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Submit Abstract</button>
+                            <button class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Upload Video & Flyer</button>
                         </div>
                     </div>
                 </div>

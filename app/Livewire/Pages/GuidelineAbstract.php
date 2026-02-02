@@ -10,6 +10,16 @@ use Livewire\Component;
 #[Title('ASMIUA - Submission')]
 class GuidelineAbstract extends Component
 {
+    public function submitAbstract()
+    {
+        return redirect()->away('https://expo.virconex-id.com/abstract/asmiua2026/');
+    }
+
+    public function uploadVideoFlyer()
+    {
+        return redirect()->away('https://expo.virconex-id.com/submit_video/edu_video_asmiua2026/');
+    }
+
     public function render()
     {
         $guidelineAbstracts = ModelsGuidelineAbstract::where('category', 'Abstract Free Paper')->orderBy('no_urut', 'asc')->get();
