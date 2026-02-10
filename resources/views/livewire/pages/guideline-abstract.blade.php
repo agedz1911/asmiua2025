@@ -91,7 +91,7 @@
                         <button class="text-start text-warning hover:text-accent hover:underline hover:cursor-pointer" onclick="my_modal_1.showModal()">Read more...</button>
 
                         <div class="card-actions justify-end mt-5">
-                            <button class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Upload Video & Flyer</button>
+                            <button wire:click='uploadVideoFlyer' class="btn btn-accent"><i class="fa-solid fa-upload me-1"></i> Upload Video & Flyer</button>
                         </div>
                     </div>
                 </div>

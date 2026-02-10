@@ -18,10 +18,10 @@
                         alt="{{$committee->name}}" alt="{{$committee->name}}" />
                 </figure>
                 <div class="card-body">
-                    <h2 class="card-title">{{ $committee->name }}</h2>
+                    <h2 class="text-lg font-semibold mb-0">{{ $committee->name }}</h2>
                     <p>@if ($committee->title != null)
-                        <br>
-                        <span class="font-semibold ml-3">({{ $committee->title }})</span>
+                        
+                        <span class="font-semibold text-[#008068]">({{ $committee->title }})</span>
                         @endif
                     </p>
 
