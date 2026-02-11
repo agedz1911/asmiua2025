@@ -15,7 +15,7 @@
                 </div>
                 <p class="italic mt-3 text-white font-semibold">" "</p>
                 <p class="text-white mt-3">
-                    October 1<sup>st</sup> - 3<sup>rd</sup>, 2026 <br> Holiday Inn Bandung Pasteur, <br> Bandung, West
+                    September 30<sup>th</sup> - October 3<sup>rd</sup>, 2026 <br> Holiday Inn Bandung Pasteur, <br> Bandung, West
                     Java, Indonesia
                 </p>
                 <div class="mt-7">
@@ -84,7 +84,7 @@
                                 Thursday to Saturday
                             </p>
                             <p class="text-sm text-gray-500 truncate">
-                                October 1<sup>st</sup> - 3<sup>rd</sup>, 2026
+                                September 30<sup>th</sup> - October 3<sup>rd</sup>, 2026
                             </p>
                         </div>
                     </div>
