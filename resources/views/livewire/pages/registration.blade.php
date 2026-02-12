@@ -18,6 +18,9 @@
                     @foreach ($uniqueLocals as $category)
                     @if ($category == 'symposium')
                     <h2 class="uppercase font-semibold text-[#008068] mb-2 mt-5">{{$category}}</h2>
+                    @if ($category == 'Symposium')
+                    <p class="text-sm mb-4">1<sup>st</sup> - 3<sup>rd</sup> October 2026</p>
+                    @endif
                     <div class="relative overflow-x-auto shadow sm:rounded-lg ">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
                             <thead class=" text-white uppercase text-center bg-[#008068] ">
@@ -27,11 +30,11 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Early Bird Registration <br>
-                                        up to 31 December 2025
+                                        up to 4 April 2026
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Late / Onsite Registration <br>
-                                        After 31 December 2025
+                                        After 4 April 2026
                                     </th>
                                     {{-- <th scope="col" class="px-6 py-3">
                                         Onsite Registration
@@ -64,7 +67,7 @@
                             </tbody>
                         </table>
                         <div class="relative mt-2">
-                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                            <a href="https://expo.virconex-id.com/registration/asmiua2026"
                                 class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
                                     class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
@@ -80,11 +83,11 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Early Bird Registration <br>
-                                        up to 31 December 2025
+                                        up to 4 April 2026
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Late / Onsite Registration <br>
-                                        After 31 December 2025
+                                        After 4 April 2026
                                     </th>
                                 </tr>
                             </thead>
@@ -110,7 +113,7 @@
                             </tbody>
                         </table>
                         <div class="relative mt-2">
-                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                            <a href="https://expo.virconex-id.com/registration/asmiua2026"
                                 class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
                                     class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
@@ -141,11 +144,13 @@
                                         {{$regLocal->title}}
                                     </th>
                                     <td class="px-6 py-4 text-center">
-                                        {{$regLocal->early_bird_reg != 0 ? 'IDR ' . number_format($regLocal->early_bird_reg,
+                                        {{$regLocal->early_bird_reg != 0 ? 'IDR ' .
+                                        number_format($regLocal->early_bird_reg,
                                         0, ',', '.') : ''}}
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        {{$regLocal->normal_reg != 0 ? 'IDR' . number_format($regLocal->normal_reg, 0, ',',
+                                        {{$regLocal->normal_reg != 0 ? 'IDR' . number_format($regLocal->normal_reg, 0,
+                                        ',',
                                         '.') : ''}}
                                     </td>
 
@@ -155,7 +160,7 @@
                             </tbody>
                         </table>
                         <div class="relative mt-2">
-                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                            <a href="https://expo.virconex-id.com/registration/asmiua2026"
                                 class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
                                     class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
@@ -183,11 +188,11 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Early Bird Registration <br>
-                                        up to 31 December 2025
+                                        up to 4 April 2026
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Late / Onsite Registration <br>
-                                        After 31 December 2025
+                                        After 4 April 2026
                                     </th>
                                     {{-- <th scope="col" class="px-6 py-3">
                                         Onsite Registration
@@ -218,7 +223,7 @@
                             </tbody>
                         </table>
                         <div class="relative mt-2">
-                            <a href="https://expo.virconex-id.com/registration/rejaselindo2026"
+                            <a href="https://expo.virconex-id.com/registration/asmiua2026"
                                 class="btn btn-accent btn-lg rounded-xl mb-3 float-end text-sm"><i
                                     class="fa-solid fa-list mx-3"></i>Register Now!</a>
                         </div>
@@ -251,5 +256,5 @@
         </div>
     </section>
 
-    
+
 </div>
