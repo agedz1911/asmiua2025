@@ -212,9 +212,9 @@
                     <h2 class="mb-1 text-accent text-xl md:text-3xl font-bold uppercase">SPONSors</h2>
                 </div>
                 <div class="mt-10">
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 items-center justify-center">
+                    <div class="flex flex-wrap justify-center items-center mx-5">
                         @foreach ($sponsors as $sponsor)
-                        <div class="p-0 border-r border-gray-300 last:border-0">
+                        <div class="p-0 border-r border-gray-300 last:border-0 w-full md:w-1/4 lg:w-1/5">
                             <div class="p-2 opacity-75 hover:opacity-100 text-center">
                                 <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
                                     target="_blank">

@@ -29,20 +29,26 @@
                             </a>
                         </li>
                         <li class="bg-accent rounded-md p-2 w-10 hover:bg-[#72C6B7] tooltip-bottom tooltip"
-                            data-tip="+62 816-995-230">
-                            <a href="tel:+62816995230" class=" hover:text-warning">
+                            data-tip="+62 8170032730">
+                            <a href="tel:+628170032730" class=" hover:text-warning">
                                 <i class="fa fa-mobile-screen text-xl"></i>
                             </a>
                         </li>
                         <li class="bg-accent rounded-md p-2 w-10 hover:bg-[#72C6B7] tooltip-bottom tooltip"
-                            data-tip="+62 816-995-230">
-                            <a href="https://wa.me/+62816995230" class=" hover:text-warning">
+                            data-tip="+62 8170032730">
+                            <a href="https://wa.me/+628170032730" class=" hover:text-warning">
                                 <i class="fa fa-whatsapp text-xl"></i>
                             </a>
                         </li>
                         <li class="bg-accent rounded-md p-2 w-10 hover:bg-[#72C6B7] tooltip-bottom tooltip"
-                            data-tip="@ig">
-                            <a href="javascript:void(0)" class=" hover:text-warning">
+                            data-tip="@asmiua">
+                            <a href="https://www.instagram.com/asmiua/" class=" hover:text-warning">
+                                <i class="fa fa-instagram text-xl"></i>
+                            </a>
+                        </li>
+                        <li class="bg-accent rounded-md p-2 w-10 hover:bg-[#72C6B7] tooltip-bottom tooltip"
+                            data-tip="@urocare.2025">
+                            <a href="https://www.instagram.com/urocare.2025/" class=" hover:text-warning">
                                 <i class="fa fa-instagram text-xl"></i>
                             </a>
                         </li>

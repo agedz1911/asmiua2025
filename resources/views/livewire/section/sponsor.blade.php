@@ -13,9 +13,9 @@
                 <div class="m-auto p-4">
                     <h2 class="mb-1 mt-3 text-2xl font-semibold text-center text-accent uppercase">{{ $category }}</h2>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-5 py-5 ">
+                <div class="flex flex-wrap justify-center items-center mx-5">
                     @foreach ($sponsors as $sponsor)
-                    <div class="p-0 border-x border-gray-300 ">
+                    <div class="p-0 border-x border-gray-300 w-full md:w-1/4 lg:w-1/5">
                         <div class="p-2 opacity-75 hover:opacity-100 text-center">
                             <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}" target="_blank">
                                 {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
