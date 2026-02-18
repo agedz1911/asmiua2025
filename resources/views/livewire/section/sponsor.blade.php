@@ -14,7 +14,19 @@
                     <h2 class="mb-1 mt-3 text-2xl font-semibold text-center text-accent uppercase">{{ $category }}</h2>
                 </div>
                 <div class="flex flex-wrap justify-center items-center mx-5">
+                    @if ($category == 'Gold Sponsor')
                     @foreach ($sponsors as $sponsor)
+                    <div class="p-0 border-x border-gray-300 w-full md:w-1/ lg:w-1/4">
+                        <div class="p-2 opacity-75 hover:opacity-100 text-center">
+                            <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}" target="_blank">
+                                {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
+                                    class="img-fluid" alt="' . $sponsor->company . '" />' : '<small
+                                    class="text-center text-accent">' . $sponsor->company . '</small>' !!}
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+                    @else
                     <div class="p-0 border-x border-gray-300 w-full md:w-1/4 lg:w-1/5">
                         <div class="p-2 opacity-75 hover:opacity-100 text-center">
                             <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}" target="_blank">
@@ -24,8 +36,8 @@
                             </a>
                         </div>
                     </div>
-                    
-                    @endforeach
+                    @endif
+
                 </div>
             </div>
         </div>

@@ -215,13 +215,15 @@
                     <div class="flex flex-wrap justify-center items-center mx-5">
                         @foreach ($sponsors as $sponsor)
                         <div class="p-0 border-r border-gray-300 last:border-0 w-full md:w-1/4 lg:w-1/5">
-                            <div class="p-2 opacity-75 hover:opacity-100 text-center">
-                                <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
-                                    target="_blank">
-                                    {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
-                                        class="img-fluid" alt="' . $sponsor->company . '" />' : '<small
-                                        class="text-center text-accent">' . $sponsor->company . '</small>' !!}
-                                </a>
+                            <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
+                                <div class="p-2 opacity-75 hover:opacity-100 text-center">
+                                    <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
+                                        target="_blank">
+                                        {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
+                                            class="img-fluid" alt="' . $sponsor->company . '" />' : '<small
+                                            class="text-center text-accent">' . $sponsor->company . '</small>' !!}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         @endforeach
