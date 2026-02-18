@@ -17,7 +17,7 @@
                     @foreach ($sponsors as $sponsor)
                     @if ($sponsor->category == 'Gold Sponsor')
                     <div class="p-0 border-x border-gray-300 w-full md:w-1/2 lg:w-1/3">
-                        <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
+                        <div class="tooltip tooltip-accent tooltip-bottom" data-tip="{{$sponsor->company}}">
                             <div class="p-2 opacity-75 hover:opacity-100 text-center">
                                 <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
                                     target="_blank">
@@ -30,7 +30,7 @@
                     </div>
                     @elseif ($sponsor->category == 'Silver Sponsor')
                     <div class="p-0 border-x border-gray-300 w-full md:w-1/3 lg:w-1/4">
-                        <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
+                        <div class="tooltip tooltip-accent tooltip-bottom" data-tip="{{$sponsor->company}}">
                             <div class="p-2 opacity-75 hover:opacity-100 text-center">
                                 <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
                                     target="_blank">
@@ -43,7 +43,7 @@
                     </div>
                     @else
                     <div class="p-0 border-x border-gray-300 w-full md:w-1/4 lg:w-1/5">
-                        <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
+                        <div class="tooltip tooltip-accent tooltip-bottom" data-tip="{{$sponsor->company}}">
                             <div class="p-2 opacity-75 hover:opacity-100 text-center">
                                 <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
                                     target="_blank">
