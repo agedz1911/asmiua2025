@@ -16,7 +16,7 @@ class HomePage extends Component
     public function render()
     {
         $welcomeMessages = WelcomeMessage::where('is_Active', true)->orderBy('no_urut', 'asc')->get();
-        $sponsors = Sponsor::where('is_Active', true)->orderBy('company', 'asc')->take(10)->get();
+        $sponsors = Sponsor::where('is_Active', true)->orderBy('no_urut', 'asc')->take(10)->get();
         return view('livewire.pages.home-page', [
             'sponsors' => $sponsors,
             'welcomeMessages' => $welcomeMessages
