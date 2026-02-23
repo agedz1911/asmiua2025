@@ -144,5 +144,11 @@
             </div>
 
         </div>
+        <div class="px-4 md:px-10 mt-10">
+            <p class="text-sm text-error italic">
+                Note: <br>
+                The scientific schedule is provisional and may be adjusted as required.
+            </p>
+        </div>
     </section>
 </div>
