@@ -27,7 +27,7 @@
                             <p class="text-xs">' . $accommodation->tag . '</p>
                         </span>' : " " !!}
                         <a href="javascript:void(0)"><img src="{{ asset('storage/' . $accommodation->image) }}"
-                                alt="{{$accommodation->hotel_name}}" class="w-full h-full max-h-56 object-cover rounded-xl"></a>
+                                alt="{{$accommodation->hotel_name}}" class="w-full h-full max-h-48 object-cover rounded-xl"></a>
                     </div>
                     <div class="mb-3">
                         <h6 class="pb-2 mb-3 text-xl font-semibold">{{$accommodation->hotel_name}}</h6>
