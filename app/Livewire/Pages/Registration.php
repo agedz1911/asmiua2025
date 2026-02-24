@@ -15,7 +15,7 @@ class Registration extends Component
 
     public function mount()
     {
-        $this->regInfos = RegInfo::where('is_active', true)->orderBy('no_urut', 'asc')->get();
+        $this->regInfos = RegInfo::where('is_active', true)->where('category', 'Registration')->orderBy('no_urut', 'asc')->get();
     }
 
     public function render()

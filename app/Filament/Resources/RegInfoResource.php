@@ -7,6 +7,7 @@ use App\Filament\Resources\RegInfoResource\RelationManagers;
 use App\Models\RegInfo;
 use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -29,10 +30,18 @@ class RegInfoResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
+                TextInput::make('title')
+                    ->required(),
+                Select::make('category')
+                    ->options([
+                        'Registration' => 'Registration',
+                        'Accommodation' => 'Accommodation',
+                    ])
+                    ->required(),
                 TextInput::make('no_urut')
                     ->integer(),
-                MarkdownEditor::make('description'),
+                MarkdownEditor::make('description')
+                ->columnSpanFull(),
                 Toggle::make('is_active')
                     ->inline()
                     ->default(true)

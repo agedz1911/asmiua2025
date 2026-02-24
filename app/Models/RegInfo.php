@@ -11,6 +11,7 @@ class RegInfo extends Model
         'title',
         'description',
         'no_urut',
-        'is_active'
+        'is_active',
+        'category'
     ];
 }

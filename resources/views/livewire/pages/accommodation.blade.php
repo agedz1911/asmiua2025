@@ -9,12 +9,10 @@
     <section class="px-5 md:px-10 pt-0 pb-10 md:py-20">
         <div class="text-center md:text-start mb-5">
             <h2 class="mb-3 uppercase text-4xl tracking-wide font-bold">Hotel <span
-                    class="text-[#008068]">Reservation</span></h2>
-            <p class="text-gray-500">The organizers of the 49<sup>th</sup> ASMIUA congress have secured competitive
-                rates at a variety of
+                    class="text-[#008068]">Recommendation</span></h2>
+            <p class="text-gray-500">The organizers of the 49<sup>th</sup> ASMIUA congress have recommendation
                 hotels near the Venue to accommodate delegates
-                with different budgets and preferences. Hotel reservations will open and are subject
-                to availability. It is advisable to book your preferred hotel as soon as possible
+                with different budgets and preferences.
             </p>
         </div>
 
@@ -29,7 +27,7 @@
                             <p class="text-xs">' . $accommodation->tag . '</p>
                         </span>' : " " !!}
                         <a href="javascript:void(0)"><img src="{{ asset('storage/' . $accommodation->image) }}"
-                                alt="{{$accommodation->hotel_name}}" class="w-full object-cover rounded-xl"></a>
+                                alt="{{$accommodation->hotel_name}}" class="w-full h-full max-h-56 object-cover rounded-xl"></a>
                     </div>
                     <div class="mb-3">
                         <h6 class="pb-2 mb-3 text-xl font-semibold">{{$accommodation->hotel_name}}</h6>
@@ -69,6 +67,28 @@
                 </div>
             </div>
             @endforeach
+        </div>
+    </section>
+
+    <section class="px-5 md:px-10 py-10 md:py-20 bg-competition border-t border-dashed border-gray-400">
+        <div class=" mt-10">
+            <div class="text-center lg:text-start">
+                <h2 class="mb-2 uppercase text-3xl font-semibold">Accommodation
+                    <span class="text-[#008068]">information</span>
+                </h2>
+            </div>
+
+            <div>
+                @foreach ($regInfos as $regInfo)
+                <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+                    <input type="radio" name="my-accordion-2" />
+                    <div class="collapse-title font-semibold">{{ $regInfo->title }}</div>
+                    <div class="collapse-content text-sm text-gray-500">
+                        {!!str($regInfo->description)->markdown()->sanitizeHtml() !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </section>
 </div>
