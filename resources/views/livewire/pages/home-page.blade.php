@@ -13,7 +13,7 @@
                         Indonesian Urological Association
                     </h1>
                 </div>
-                <p class="italic mt-3 text-white font-semibold">" "</p>
+                <p class="italic mt-3 text-white font-semibold">" Preparing the Next Generation of Urology for Future Challenges "</p>
                 <p class="text-white mt-3">
                     September 30<sup>th</sup> - October 3<sup>rd</sup>, 2026 <br> Holiday Inn Bandung Pasteur, <br> Bandung, West
                     Java, Indonesia
@@ -71,7 +71,7 @@
             <h1 class="text-lg lg:text-xl text-[#008068] mb-5 font-bold">
                 49<sup>th</sup> Annual Scientific Meeting of Indonesian Urological Association</span>
             </h1>
-            <p class="italic font-semibold text-sm">" "</p>
+            <p class="italic font-semibold text-sm tracking-wider">" Preparing the Next Generation of Urology for Future Challenges "</p>
             <div class="flex flex-col md:flex-row lg:justify-start justify-center items-center gap-3 mt-8">
                 <div
                     class="z-10 hover:cursor-pointer max-w-sm p-6 bg-white border border-sky-50 rounded-lg shadow-md hover:bg-[#f5fdff]">
