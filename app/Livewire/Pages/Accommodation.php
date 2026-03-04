@@ -16,10 +16,12 @@ class Accommodation extends Component
     {
         $this->regInfos = RegInfo::where('is_active', true)->where('category', 'Accommodation')->orderBy('no_urut', 'asc')->get();
     }
-    
+
     public function render()
     {
-        $accommodations = ModelsAccommodation::where('is_active', true)->orderBy('hotel_star', 'desc')->get();
+        $accommodations = ModelsAccommodation::Where('is_active', true)
+            ->orderByRaw('CASE WHEN tag IS NOT NULL AND tag != "" THEN 1 ELSE 0 END DESC')
+            ->orderBy('hotel_star', 'desc')->get();
         return view('livewire.pages.accommodation', ['accommodations' => $accommodations]);
     }
 }
