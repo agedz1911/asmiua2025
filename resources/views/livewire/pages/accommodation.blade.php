@@ -42,7 +42,7 @@
                         <p class="mt-2 mb-5 text-xs"><i class="fa-solid text-[#78c9bb] fa-circle-info"></i>
                             {{$accommodation->distance}}
                         </p>
-                        @if ($accommodation->tag !== '')
+                        @if ($accommodation->tag !== null && $accommodation->tag !== '')
                         <p class="text-sm"> Price/Night</p>
                         @else
                         <p class="text-sm"> Estimated Cost/Night</p>
