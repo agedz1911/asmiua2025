@@ -19,8 +19,7 @@
                     Java, Indonesia
                 </p>
                 <div class="mt-7">
-                    <button class="btn btn-accent rounded-lg btn-lg text-sm px-5 lg:px-10">Read
-                        More <i class="fa-solid fa-angles-right text-xs"></i></button>
+                    <a href="assets/download/announcement_ASMIUA.pdf" target="_blank" class="btn btn-accent rounded-lg btn-lg text-sm px-5 lg:px-10">Download Announcement <i class="fa-solid fa-angles-right text-xs"></i></a>
                     <a href="/registration" wire:navigate
                         class="text-white hover:text-white border border-white hover:bg-[#008068] hover:border-[#008068] focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 md:px-10 py-3 text-center  dark:border-[#008068] dark:text-[#008068] dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-300"><i
                             class="fa-solid fa-pen-to-square"></i> Regiter Now </a>
