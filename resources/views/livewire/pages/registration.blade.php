@@ -128,10 +128,10 @@
                                         Category
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Other Surgeons / General Practitioners (GP)
+                                        Registration Fee
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Nurse / Medical Students
+                                        Date
                                     </th>
 
                                 </tr>
@@ -146,12 +146,10 @@
                                     <td class="px-6 py-4 text-center">
                                         {{$regLocal->early_bird_reg != 0 ? 'IDR ' .
                                         number_format($regLocal->early_bird_reg,
-                                        0, ',', '.') : ''}}
+                                        0, ',', '.') : 'Free'}}
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        {{$regLocal->normal_reg != 0 ? 'IDR' . number_format($regLocal->normal_reg, 0,
-                                        ',',
-                                        '.') : ''}}
+                                        {{\Carbon\Carbon::parse($regLocal->date_early_bird)->format('l, d F, Y')}}
                                     </td>
 
                                 </tr>
