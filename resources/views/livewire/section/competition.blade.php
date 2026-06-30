@@ -54,19 +54,33 @@
                     <h2 class="mb-1 text-accent text-xl md:text-3xl font-bold uppercase">SPONSors</h2>
                 </div>
                 <div class="mt-10">
+                    <div class="mb-4 flex items-center justify-end gap-2 px-2" x-data="carouselSetupControls()">
+                        <button type="button"
+                            class="btn btn-sm btn-outline btn-accent rounded-full"
+                            @click="$dispatch('sponsor-carousel-prev')">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button"
+                            class="btn btn-sm btn-outline btn-accent rounded-full"
+                            @click="$dispatch('sponsor-carousel-next')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
                     <div x-data="carouselSetup()" x-init="startInterval()" @resize.window="handleResize()"
-                        class="w-full  mx-auto overflow-hidden bg-base-100 rounded-box px-6 py-12">
-
+                        @mouseenter="stopInterval()" @mouseleave="startInterval()"
+                        @sponsor-carousel-prev.window="prevSlide()" @sponsor-carousel-next.window="nextSlide()"
+                        class="w-full mx-auto overflow-hidden bg-base-100 rounded-box px-4 py-8 md:px-6 md:py-12">
                         <div class="flex transition-transform duration-700 ease-in-out"
-                            :style="`transform: translateX(-${(currentIndex * 100) / visibleItems}%)`">
+                            :style="`transform: translateX(-${(currentIndex * 100) / effectiveVisibleItems}%)`">
                             @foreach ($sponsors as $sponsor)
-                            <div class="p-0 border-r border-gray-300 last:border-0 w-full md:w-1/4 lg:w-1/5">
+                            <div class="flex-none border-r border-gray-300 last:border-0 px-3"
+                                :style="`width: ${100 / effectiveVisibleItems}%`">
                                 <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
-                                    <div class="p-2 opacity-75 hover:opacity-100 text-center">
+                                    <div class="flex h-24 items-center justify-center p-2 opacity-75 hover:opacity-100 text-center md:h-28">
                                         <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
-                                            target="_blank">
+                                            target="_blank" class="flex h-full w-full items-center justify-center">
                                             {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
-                                                class="img-fluid" alt="' . $sponsor->company . '" />' : '<small
+                                                class="max-h-full w-auto max-w-full object-contain" alt="' . $sponsor->company . '" />' : '<small
                                                 class="text-center text-accent">' . $sponsor->company . '</small>' !!}
                                         </a>
                                     </div>
@@ -86,11 +100,17 @@
 
 <script>
     document.addEventListener('alpine:init', () => {
+        Alpine.data('carouselSetupControls', () => ({}))
+
         Alpine.data('carouselSetup', () => ({
             currentIndex: 0,
             totalItems: {{ count($sponsors) }}, // Mengambil jumlah total dari Livewire
             visibleItems: 6, // Default tampilan lg
             interval: null,
+
+            get effectiveVisibleItems() {
+                return Math.min(this.visibleItems, this.totalItems || 1);
+            },
 
             init() {
                 this.handleResize();
@@ -105,11 +125,21 @@
                 } else {
                     this.visibleItems = 2;
                 }
-                this.currentIndex = 0; // Reset posisi agar tidak terpotong saat resize
+                const maxIndex = Math.max(this.totalItems - this.effectiveVisibleItems, 0);
+                this.currentIndex = Math.min(this.currentIndex, maxIndex);
+            },
+
+            prevSlide() {
+                const maxIndex = Math.max(this.totalItems - this.effectiveVisibleItems, 0);
+                if (this.currentIndex <= 0) {
+                    this.currentIndex = maxIndex;
+                } else {
+                    this.currentIndex--;
+                }
             },
 
             nextSlide() {
-                const maxIndex = this.totalItems - this.visibleItems;
+                const maxIndex = Math.max(this.totalItems - this.effectiveVisibleItems, 0);
                 if (this.currentIndex >= maxIndex) {
                     this.currentIndex = 0; // Balik ke awal
                 } else {
@@ -118,9 +148,28 @@
             },
 
             startInterval() {
+                if (this.totalItems <= this.effectiveVisibleItems) {
+                    this.stopInterval();
+                    return;
+                }
+
+                if (this.interval) {
+                    clearInterval(this.interval);
+                }
                 this.interval = setInterval(() => {
                     this.nextSlide();
                 }, 3000); // Jeda 3 detik
+            },
+
+            stopInterval() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            },
+
+            destroy() {
+                this.stopInterval();
             }
         }))
     })
