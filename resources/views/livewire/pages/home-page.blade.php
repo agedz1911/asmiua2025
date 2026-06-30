@@ -13,13 +13,17 @@
                         Indonesian Urological Association
                     </h1>
                 </div>
-                <p class="italic mt-3 text-white font-semibold">" Preparing the Next Generation of Urology for Future Challenges "</p>
+                <p class="italic mt-3 text-white font-semibold">" Preparing the Next Generation of Urology for Future
+                    Challenges "</p>
                 <p class="text-white mt-3">
-                    September 30<sup>th</sup> - October 3<sup>rd</sup>, 2026 <br> Holiday Inn Bandung Pasteur, <br> Bandung, West
+                    September 30<sup>th</sup> - October 3<sup>rd</sup>, 2026 <br> Holiday Inn Bandung Pasteur, <br>
+                    Bandung, West
                     Java, Indonesia
                 </p>
                 <div class="mt-7">
-                    <a href="assets/download/announcement_ASMIUA.pdf" target="_blank" class="btn btn-accent rounded-lg btn-lg text-sm px-5 lg:px-10">Download Announcement <i class="fa-solid fa-angles-right text-xs"></i></a>
+                    <a href="assets/download/announcement_ASMIUA.pdf" target="_blank"
+                        class="btn btn-accent rounded-lg btn-lg text-sm px-5 lg:px-10">Download Announcement <i
+                            class="fa-solid fa-angles-right text-xs"></i></a>
                     <a href="/registration" wire:navigate
                         class="text-white hover:text-white border border-white hover:bg-[#008068] hover:border-[#008068] focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 md:px-10 py-3 text-center  dark:border-[#008068] dark:text-[#008068] dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-300"><i
                             class="fa-solid fa-pen-to-square"></i> Regiter Now </a>
@@ -70,7 +74,8 @@
             <h1 class="text-lg lg:text-xl text-[#008068] mb-5 font-bold">
                 49<sup>th</sup> Annual Scientific Meeting of Indonesian Urological Association</span>
             </h1>
-            <p class="italic font-semibold text-sm tracking-wider">" Preparing the Next Generation of Urology for Future Challenges "</p>
+            <p class="italic font-semibold text-sm tracking-wider">" Preparing the Next Generation of Urology for Future
+                Challenges "</p>
             <div class="flex flex-col md:flex-row lg:justify-start justify-center items-center gap-3 mt-8">
                 <div
                     class="z-10 hover:cursor-pointer max-w-sm p-6 bg-white border border-sky-50 rounded-lg shadow-md hover:bg-[#f5fdff]">
@@ -186,7 +191,8 @@
                         <div class="pb-4 text-justify text-slate-200">
                             {!! Str::limit(str($welcomeMessage->description)->markdown()->sanitizeHtml(), 450) !!} <br>
                         </div>
-                        <a class="text-amber-200 hover:text-warning hover:underline" href="/welcome-message">Read More...</a>
+                        <a class="text-amber-200 hover:text-warning hover:underline" href="/welcome-message">Read
+                            More...</a>
                         <div class="p-4 rounded-xl bg-accent w-full max-w-sm mt-3 mb-5">
                             <div class="p-2 border-s border-white border-spacing-7">
                                 <p class="text-white text-xs italic">" {{$welcomeMessage->title}}
@@ -202,38 +208,6 @@
     </section>
 
     <livewire:section.competition />
-
-    <section class="w-full pt-24 pb-3 px-2 lg:px-4 ">
-        <div class="border-b-2 border-dashed border-accent/50 pb-10">
-            <div class="">
-                <div class="text-center pb-6 w-60 m-auto">
-                    <span class="mb-1  text-sm">49<sup>th</sup> ASMIUA</span>
-                    <h2 class="mb-1 text-accent text-xl md:text-3xl font-bold uppercase">SPONSors</h2>
-                </div>
-                <div class="mt-10">
-                    <div class="flex flex-wrap justify-center items-center mx-5">
-                        @foreach ($sponsors as $sponsor)
-                        <div class="p-0 border-r border-gray-300 last:border-0 w-full md:w-1/4 lg:w-1/5">
-                            <div class="tooltip tooltip-accent" data-tip="{{$sponsor->category}}">
-                                <div class="p-2 opacity-75 hover:opacity-100 text-center">
-                                    <a href="{{$sponsor->website ? $sponsor->website : 'javascript:void(0)'}}"
-                                        target="_blank">
-                                        {!! $sponsor->logo ? '<img src="' . asset('storage/' . $sponsor->logo) . '"
-                                            class="img-fluid" alt="' . $sponsor->company . '" />' : '<small
-                                            class="text-center text-accent">' . $sponsor->company . '</small>' !!}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="text-center my-10">
-                    <a class="btn btn-accent rounded-xl uppercase" href="/sponsors">VIEW MORE Sponsors</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="w-full pt-24 pb-3 px-2 lg:px-4">
         <div class="text-center mb-5 pb-10">
