@@ -33,7 +33,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@$5/themes.css" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6B6X9SP1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRCWNXCZNG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -42,8 +42,9 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-ZT6B6X9SP1');
+        gtag('config', 'G-JRCWNXCZNG');
     </script>
+
 
 </head>
 
