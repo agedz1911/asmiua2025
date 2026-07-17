@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Faculty as ModelsFaculty;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -10,30 +11,71 @@ use Livewire\Component;
 class Faculty extends Component
 {
     public $searchTerm = "";
+    public bool $readyToLoad = false;
+
+    public function loadData(): void
+    {
+        $this->readyToLoad = true;
+    }
 
     public function render()
     {
-        // $indofaculties = ModelsFaculty::where('is_active', true)->where('country', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
-        // $foreignfaculties = ModelsFaculty::where('is_active', true)->where('country', '!=', 'indonesia')->with('schedules')->orderBy('name', 'asc')->get();
-        $queryIndo = ModelsFaculty::where('is_active', true)->with('schedules')->where('country', 'Indonesia');
-        $queryForeign = ModelsFaculty::where('is_active', true)->with('schedules')->where('country', '!=', 'Indonesia');
-        if (strlen($this->searchTerm) >= 3) {
-            $queryIndo->where(function ($q) {
-                $q->where('name', 'like', '%' . $this->searchTerm . '%');
-            });
+        if (! $this->readyToLoad) {
+            return view('livewire.pages.faculty', [
+                'indofaculties' => collect(),
+                'foreignfaculties' => collect(),
+            ]);
         }
-        if (strlen($this->searchTerm) >= 3) {
-            $queryForeign->where(function ($q) {
-                $q->where('name', 'like', '%' . $this->searchTerm . '%');
-            });
-        }
-        $indofaculties = $queryIndo
-            ->orderBy('name', 'asc')
-            ->paginate(12);
 
-        $foreignfaculties = $queryForeign
-            ->orderBy('name', 'asc')
-            ->paginate(12);
+        $searchTerm = trim($this->searchTerm);
+        $shouldFilterBySearch = mb_strlen($searchTerm) >= 3;
+        $cacheKey = 'faculty-page:' . md5(mb_strtolower($searchTerm));
+
+        [$indofaculties, $foreignfaculties] = Cache::remember($cacheKey, now()->addMinutes(2), function () use ($searchTerm, $shouldFilterBySearch) {
+            $baseFacultySelect = ['id', 'name', 'country', 'image', 'description', 'no_urut'];
+            $scheduleSelect = ['id', 'faculty_id', 'sesi_id', 'time_speaker', 'topic_title'];
+            $sessionSelect = ['id', 'date', 'room', 'title_ses'];
+
+            $queryIndo = ModelsFaculty::query()
+                ->select($baseFacultySelect)
+                ->where('is_active', true)
+                ->where('country', 'Indonesia')
+                ->with([
+                    'schedules' => function ($query) use ($scheduleSelect, $sessionSelect) {
+                        $query->select($scheduleSelect)
+                            ->with([
+                                'sesi' => function ($sessionQuery) use ($sessionSelect) {
+                                    $sessionQuery->select($sessionSelect);
+                                },
+                            ]);
+                    },
+                ]);
+
+            $queryForeign = ModelsFaculty::query()
+                ->select($baseFacultySelect)
+                ->where('is_active', true)
+                ->where('country', '!=', 'Indonesia')
+                ->with([
+                    'schedules' => function ($query) use ($scheduleSelect, $sessionSelect) {
+                        $query->select($scheduleSelect)
+                            ->with([
+                                'sesi' => function ($sessionQuery) use ($sessionSelect) {
+                                    $sessionQuery->select($sessionSelect);
+                                },
+                            ]);
+                    },
+                ]);
+
+            if ($shouldFilterBySearch) {
+                $queryIndo->where('name', 'like', '%' . $searchTerm . '%');
+                $queryForeign->where('name', 'like', '%' . $searchTerm . '%');
+            }
+
+            return [
+                $queryIndo->orderBy('no_urut', 'asc')->get(),
+                $queryForeign->orderBy('no_urut', 'asc')->get(),
+            ];
+        });
 
         return view('livewire.pages.faculty', ['indofaculties' => $indofaculties, 'foreignfaculties' => $foreignfaculties]);
     }
