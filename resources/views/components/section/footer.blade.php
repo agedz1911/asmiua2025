@@ -64,7 +64,7 @@
                     <li class="text-sm font-normal hover:text-[#008068] hover:underline"><a wire:navigate
                             href="/faculties">Faculties</a></li>
                     <li class="text-sm font-normal hover:text-[#008068] hover:underline"><a wire:navigate
-                            href="#">Schedule</a></li>
+                            href="/program-at-glance">Schedule</a></li>
                     <li class="text-sm font-normal hover:text-[#008068] hover:underline"><a wire:navigate
                             href="/registration">Registration</a></li>
                     <li class="text-sm font-normal hover:text-[#008068] hover:underline"><a wire:navigate

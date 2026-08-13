@@ -12,21 +12,34 @@ use Livewire\Component;
 #[Title('ASMIUA - Program at Glance')]
 class AtGlance extends Component
 {
+    public $search = '';
     public $atglances;
+    public $tigapuluh;
     public $satu;
     public $dua;
     public $tiga;
 
-    public function mount()
+    public function resetSearch()
     {
-        $this->atglances = ScheduleSession::all();
-        $this->satu = $this->atglances->where('date', '2025-09-25')->sortBy('no_urut');
-        $this->dua = $this->atglances->where('date', '2025-09-26')->sortBy('no_urut');
-        $this->tiga = $this->atglances->where('date', '2025-09-27')->sortBy('no_urut');
+        $this->search = '';
     }
 
     public function render()
     {
+        $this->atglances = ScheduleSession::query()
+            ->when($this->search, function ($query) {
+                $query->where(function ($query) {
+                    $query->where('title_ses', 'like', '%' . $this->search . '%')
+                        ->orWhere('room', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->get();
+
+        $this->satu = $this->atglances->where('date', '2026-10-01')->sortBy('no_urut');
+        $this->dua = $this->atglances->where('date', '2026-10-02')->sortBy('no_urut');
+        $this->tiga = $this->atglances->where('date', '2026-10-03')->sortBy('no_urut');
+        $this->tigapuluh = $this->atglances->where('date', '2026-09-30')->sortBy('no_urut');
+
         return view('livewire.pages.at-glance');
     }
 }
