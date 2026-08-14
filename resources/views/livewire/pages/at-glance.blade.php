@@ -38,7 +38,7 @@
                                 <tbody>
                                     <tr>
                                         @foreach ($day['rooms'] as $room)
-                                            <td class="align-top min-w-44">
+                                            <td class="align-top w-40">
                                                 @foreach ($day['sessionsByRoom']->get($room, collect()) as $session)
                                                     <button class="hover:shadow-md block w-full my-1 hover:cursor-pointer"
                                                         onclick="document.getElementById('modal-{{ $session->id }}').showModal()">

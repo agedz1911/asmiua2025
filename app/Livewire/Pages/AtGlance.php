@@ -17,7 +17,7 @@ class AtGlance extends Component
         ],
         '2026-10-01' => [
             'label' => '1 October',
-            'rooms' => ['Pasteur 1&2 Convention', 'Pasteur 3 Convention', 'Empire 1', 'Empire 2'],
+            'rooms' => ['Pasteur 1&2 Convention', 'Pasteur 3 Convention', 'Empire 1'],
         ],
         '2026-10-02' => [
             'label' => '2 October',
