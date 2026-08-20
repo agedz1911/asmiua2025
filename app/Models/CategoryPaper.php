@@ -13,6 +13,7 @@ class CategoryPaper extends Model
 
     protected $fillable = [
         'name',
+        'color',
         'is_active',
         'sort'
     ];

@@ -7,6 +7,7 @@ use App\Filament\Clusters\ScientificSchedule\Resources\CategoryPaperResource\Pag
 use App\Filament\Clusters\ScientificSchedule\Resources\CategoryPaperResource\RelationManagers;
 use App\Models\CategoryPaper;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -33,6 +34,17 @@ class CategoryPaperResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Select::make('color')
+                    ->options([
+                        'primary' => 'Primary',
+                        'success' => 'Success',
+                        'info' => 'Info',
+                        'warning' => 'Warning',
+                        'danger' => 'Danger',
+                        'gray' => 'Gray',
+                    ])
+                    ->default('gray')
+                    ->required(),
                 Toggle::make('is_active')
                     ->label('Active')
                     ->default(true)
@@ -44,6 +56,7 @@ class CategoryPaperResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')->sortable(),
                 TextColumn::make('name')->label('Category Name')->searchable()->sortable(),
                 ToggleColumn::make('is_active')
                     ->sortable(),

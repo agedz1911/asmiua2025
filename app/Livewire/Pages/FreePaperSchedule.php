@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\CategoryPaper;
 use App\Models\GuidelineAbstract;
 use App\Models\SchedulePaper;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -22,6 +23,7 @@ class FreePaperSchedule extends Component
     use WithPagination, WithoutUrlPagination;
 
     public $presentationGuides;
+    public $categories;
 
     public $search = '';
     public $perPage = 20;
@@ -30,7 +32,7 @@ class FreePaperSchedule extends Component
     public function mount()
     {
         $this->presentationGuides = GuidelineAbstract::where('category', 'Presentation Guidelines')->orderBy('no_urut', 'asc')->get();
-        
+        $this->categories = CategoryPaper::where('is_active', true)->orderBy('sort', 'asc')->get();
     }
 
     public function filterByCategory($category)

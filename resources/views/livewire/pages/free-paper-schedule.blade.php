@@ -42,18 +42,12 @@
                                     All Categories
                                 </a>
                             </li>
-                            <li><a href="#" wire:click.prevent="filterByCategory('Podium Presentation')" class="{{ $selectedCategory == 'Podium Presentation' ? 'text-[#008068]' : '' }}">
-                                    Podium Presentation
+                            @foreach ($categories as $category)
+                            <li><a href="#" wire:click.prevent="filterByCategory('{{ $category->name }}')" class="{{ $selectedCategory == $category->name ? 'text-[#008068]' : '' }}">
+                                    {{ $category->name }}
                                 </a>
                             </li>
-                            <li><a href="#" wire:click.prevent="filterByCategory('Moderated e-Poster')" class="{{ $selectedCategory == 'Moderated e-Poster' ? 'text-[#008068]' : '' }}">
-                                    Moderated e-Poster
-                                </a>
-                            </li>
-                            <li><a href="#" wire:click.prevent="filterByCategory('Unmoderated Poster')" class="{{ $selectedCategory == 'Unmoderated Poster' ? 'text-[#008068]' : '' }}">
-                                    Unmoderated Poster
-                                </a>
-                            </li>
+                            @endforeach
 
                         </ul>
                     </div>
@@ -61,6 +55,12 @@
                         <label class="input">
                             <i class="fa fa-search"></i>
                             <input wire:model.live.debounce.500ms='search' type="search" class="grow " placeholder="Search code, name, title, category" />
+                            @if (filled($this->search))
+                            <button type="button" wire:click="$set('search', '')" class="text-xs text-gray-500 hover:text-gray-700"
+                                aria-label="Reset search">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            @endif
                         </label>
                     </div>
                 </div>
@@ -100,13 +100,8 @@
                         <td>{{$paper->code_abstract}}</td>
                         <td>{{$paper->name_participant}}</td>
                         <td>
-                            @if ($paper->paperCategory->name == 'Podium Presentation')
-                            <span class="badge badge-success">{{$paper->paperCategory->name}}</span>
-                            @elseif ($paper->paperCategory->name == 'Moderated e-Poster')
-                            <span class="badge bg-info">{{$paper->paperCategory->name}}</span>
-                            @elseif ($paper->paperCategory->name == 'Unmoderated Poster')
-                            <span class="badge bg-warning">{{$paper->paperCategory->name}}</span>
-                            @endif
+                            <span class="badge hidden lg:block badge-{{ $paper->paperCategory->color }}">{{$paper->paperCategory->name}}</span>
+                            <span class="block lg:hidden">{{$paper->paperCategory->name}}</span>
                         </td>
                         <td>{{$paper->title}}</td>
                         <td>{{$paper->institution}}</td>
