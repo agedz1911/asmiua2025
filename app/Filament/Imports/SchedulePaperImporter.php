@@ -23,8 +23,7 @@ class SchedulePaperImporter extends Importer
             ImportColumn::make('name_participant')
                 ->requiredMapping()
                 ->rules(['required', 'max:255']),
-            ImportColumn::make('title')
-                ->rules(['required', 'max:65535']),
+            ImportColumn::make('title'),
             ImportColumn::make('institution')
                 ->rules(['max:255']),
             ImportColumn::make('country')

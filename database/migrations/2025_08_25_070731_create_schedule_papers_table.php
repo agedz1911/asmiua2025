@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('category_papers')->onDelete('cascade');
             $table->string('code_abstract');
             $table->string('name_participant');
-            $table->string('title')->nullable();
+            $table->text('title')->nullable();
             $table->string('institution')->nullable();
             $table->string('country')->nullable();
             $table->date('date_presenter')->nullable();
