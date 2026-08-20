@@ -16,7 +16,6 @@ class SchedulePaperImporter extends Importer
         return [
             ImportColumn::make('category_id')
                 ->requiredMapping()
-                ->numeric()
                 ->rules(['required', 'integer']),
             ImportColumn::make('code_abstract')
                 ->requiredMapping()
@@ -25,14 +24,15 @@ class SchedulePaperImporter extends Importer
                 ->requiredMapping()
                 ->rules(['required', 'max:255']),
             ImportColumn::make('title')
-                ->rules(['max:255']),
+                ->rules(['required', 'max:65535']),
             ImportColumn::make('institution')
                 ->rules(['max:255']),
             ImportColumn::make('country')
                 ->rules(['max:255']),
             ImportColumn::make('date_presenter')
                 ->rules(['date']),
-            ImportColumn::make('time_presenter'),
+            ImportColumn::make('time_presenter')
+                ->rules(['max:255']),
             ImportColumn::make('room')
                 ->rules(['max:255']),
             ImportColumn::make('is_active')
