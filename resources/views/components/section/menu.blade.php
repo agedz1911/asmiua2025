@@ -72,7 +72,7 @@
                     Free Paper Schedule <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>
-                <a href="/https://expo.virconex-id.com/eposter/asmiua2026/auth/login.php"
+                <a href="https://expo.virconex-id.com/eposter/asmiua2026/auth/login.php"
                     class="justify-between hover:text-[#72C6B7]">Free Paper Presentation Submission <i class="fa-solid fa-angle-right"></i></a>
             </li>
             <li>

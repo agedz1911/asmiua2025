@@ -51,7 +51,7 @@
                 <i class="fa-solid fa-angle-right"></i></a>
         </li>
         <li>
-            <a href="/https://expo.virconex-id.com/eposter/asmiua2026/auth/login.php" 
+            <a href="https://expo.virconex-id.com/eposter/asmiua2026/auth/login.php" 
                 class=" justify-between font-normal hover:text-accent after:content-[''] relative after:absolute flex items-center hover:after:items-center transition-all after:transition-all duration-300 after:duration-300 after:bg-green-600 hover:ps-3 after:left-0 after:h-0 hover:after:h-[5px] after:w-0 hover:after:w-[5px] after:rounded-full">Free Paper Presentation Submission 
                 <i class="fa-solid fa-angle-right"></i></a>
         </li>
