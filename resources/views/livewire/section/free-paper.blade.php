@@ -62,15 +62,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Room</th>
-                        <th scope="col">Code Abstract</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Insitution</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Category</th>
+                        <th width="2%" scope="col">No</th>
+                        <th width="8%" scope="col">Time</th>
+                        <th width="9%" scope="col">Room</th>
+                        <th width="10%" scope="col">Code Abstract</th>
+                        <th width="15%" scope="col">Name</th>
+                        <th width="11%" scope="col">Insitution</th>
+                        <th width="10%" scope="col">Country</th>
+                        <th width="21%" scope="col">Title</th>
+                        <th width="10%" scope="col">Category</th>
                     </tr>
                 </thead>
                 <tbody>
