@@ -10,7 +10,7 @@
         </div>
     </section>
 
-    <section class="">
+    <section class="pb-10">
         <div class="p-5 mb-5">
             <form>
                 <div class="flex justify-center items-center gap-3">
@@ -64,9 +64,9 @@
                     <tr>
                         <th width="2%" scope="col">No</th>
                         <th width="8%" scope="col">Time</th>
-                        <th width="9%" scope="col">Room</th>
+                        <th width="8%" scope="col">Room</th>
                         <th width="10%" scope="col">Code Abstract</th>
-                        <th width="15%" scope="col">Name</th>
+                        <th width="16%" scope="col">Name</th>
                         <th width="11%" scope="col">Insitution</th>
                         <th width="10%" scope="col">Country</th>
                         <th width="21%" scope="col">Title</th>
