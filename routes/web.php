@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AtGlanceController;
+use App\Livewire\Section\FreePaper;
 use App\Livewire\Pages\Accommodation;
 use App\Livewire\Pages\AtGlance;
 use App\Livewire\Pages\Committee;
@@ -30,3 +31,5 @@ Route::get('/faculties', Faculty::class);
 Route::get('/accommodation', Accommodation::class);
 Route::get('/sponsors', Sponsor::class);
 Route::get('/visiting', Visiting::class);
+
+Route::get('/free-paper', FreePaper::class);
