@@ -122,7 +122,16 @@
                 <div class="collapse bg-base-100 border border-base-300 my-2">
                     <input type="radio" name="my-accordion-1" />
                     <div class="collapse-title font-semibold">{{$atglance->title_ses}} - <span class="text-xs"><i
-                                class="fa fa-map-marker text-[#9E1F63]"></i> {{$atglance->room}} </span></div>
+                                class="fa fa-map-marker text-[#9E1F63]"></i>
+                            @if ($atglance->room == 'Pasteur 1&2 Convention')
+                            Pasteur 2&3 Convention
+                            @elseif ($atglance->room == 'Pasteur 3 Convention')
+                            Pasteur 1 Convention
+                            @else
+                            {{$atglance->room}}
+                            @endif
+                        </span>
+                    </div>
                     <div class="collapse-content text-sm">
                         <div class="flex flex-wrap justify-between gap-4 items-start">
                             <div>
@@ -130,7 +139,15 @@
                                     <span class="font-semibold">Session:</span> {{$atglance->title_ses}}
                                 </p>
                                 <p class="mb-2"><i class="fa fa-clock text-[#9E1F63]"></i> {{$atglance->time}} | <i
-                                        class="fa fa-map-marker text-[#9E1F63]"></i> {{$atglance->room}}</p>
+                                        class="fa fa-map-marker text-[#9E1F63]"></i>
+                                    @if ($atglance->room == 'Pasteur 1&2 Convention')
+                                    Pasteur 2&3 Convention
+                                    @elseif ($atglance->room == 'Pasteur 3 Convention')
+                                    Pasteur 1 Convention
+                                    @else
+                                    {{$atglance->room}}
+                                    @endif
+                                </p>
                             </div>
                             <div>
                                 {{-- {{$atglance->category_sesi}} --}}
